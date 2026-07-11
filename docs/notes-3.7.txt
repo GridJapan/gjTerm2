@@ -8,6 +8,14 @@ number up to 3.7. The changelog below is relative
 to version 3.6.7 and duplicates some items in
 betas since then.
 
+gjTerm2:
+- The tab bar now stays visible even with only
+  one tab, so a lone tab can be named and
+  dragged. Drag one single-tab window onto
+  another to merge them into a two-tab window.
+  Turn off under Appearance > “Show tab bar
+  even when there is only one tab”.
+
 Major New Features:
 - Companion App: a new iOS app, iTerm2 Buddy,
   pairs with your Mac by scanning a QR code

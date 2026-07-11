@@ -781,7 +781,11 @@ static NSString *sPreviousVersion;
                   kPreferenceKeyStatusBarPosition: @(iTermStatusBarPositionTop),
                   kPreferenceKeyTopBottomMargins: @2,
                   kPreferenceKeySideMargins: @5,
-                  kPreferenceKeyHideTabBar: @YES,
+                  // gjTerm2: default to always showing the tab bar, even with
+                  // a single tab. A lone tab then has a visible, renameable,
+                  // draggable handle — so single-tab windows can be named and
+                  // dragged onto each other to merge into one multi-tab window.
+                  kPreferenceKeyHideTabBar: @NO,
                   kPreferenceKeyHideTabNumber: @NO,
                   kPreferenceKeyPreserveWindowSizeWhenTabBarVisibilityChanges: @NO,
                   kPreferenceKeyPreserveWindowSizeToKeepOnScreenWhenTabBarVisibilityChanges: @NO,
