@@ -485,6 +485,489 @@ async def set_color_preset(target: str, preset: str) -> Any:
         return _err("set_color_preset", exc)
 
 
+# ------------------------------------------------------------- windows
+
+
+def _find_window(app, window_id: str):
+    return next((w for w in app.terminal_windows if w.window_id == window_id), None)
+
+
+def _locate(app, session):
+    """Return (window, tab) that own SESSION, or (None, None)."""
+    sid = session.session_id
+    for w in app.terminal_windows:
+        for t in w.tabs:
+            if any(s.session_id == sid for s in t.sessions):
+                return w, t
+    return None, None
+
+
+@mcp.tool()
+async def new_window() -> Any:
+    """Open a new terminal window. Returns {ok, window_id, tab_id, session_id}."""
+    try:
+        win = await iterm2.Window.async_create(await _connection())
+        if win is None:
+            return {"error": "window creation failed"}
+        tab = win.current_tab or (win.tabs[0] if win.tabs else None)
+        session = tab.current_session if tab else None
+        return {"ok": True, "window_id": win.window_id,
+                "tab_id": tab.tab_id if tab else None,
+                "session_id": session.session_id if session else None}
+    except Exception as exc:
+        return _err("new_window", exc)
+
+
+@mcp.tool()
+async def close_window(window_id: str, force: bool = False) -> Any:
+    """Close a whole window (and all its tabs) by window_id."""
+    try:
+        app = await _app()
+        win = _find_window(app, window_id)
+        if win is None:
+            return {"error": f"no window with id {window_id}"}
+        await win.async_close(force=force)
+        return {"ok": True, "window_id": window_id}
+    except Exception as exc:
+        return _err("close_window", exc)
+
+
+@mcp.tool()
+async def get_window_frame(window_id: str = "") -> Any:
+    """Get a window's position and size (screen points, bottom-left origin).
+
+    Omit WINDOW_ID for the current window. Returns {window_id, x, y, width, height}.
+    """
+    try:
+        app = await _app()
+        win = _find_window(app, window_id) if window_id else app.current_terminal_window
+        if win is None:
+            return {"error": f"no window {window_id or '(current)'}"}
+        f = await win.async_get_frame()
+        return {"window_id": win.window_id, "x": f.origin.x, "y": f.origin.y,
+                "width": f.size.width, "height": f.size.height}
+    except Exception as exc:
+        return _err("get_window_frame", exc)
+
+
+@mcp.tool()
+async def set_window_frame(window_id: str, x: int, y: int, width: int, height: int) -> Any:
+    """Move/resize a window (screen points, bottom-left origin).
+
+    This is the building block for tiling windows: call it per window with the
+    frames you want. Use get_window_frame to read current geometry first.
+    """
+    try:
+        app = await _app()
+        win = _find_window(app, window_id)
+        if win is None:
+            return {"error": f"no window with id {window_id}"}
+        frame = iterm2.Frame(origin=iterm2.Point(x, y), size=iterm2.Size(width, height))
+        await win.async_set_frame(frame)
+        return {"ok": True, "window_id": window_id,
+                "frame": {"x": x, "y": y, "width": width, "height": height}}
+    except Exception as exc:
+        return _err("set_window_frame", exc)
+
+
+@mcp.tool()
+async def set_window_fullscreen(window_id: str, fullscreen: bool = True) -> Any:
+    """Enter or leave fullscreen for a window."""
+    try:
+        app = await _app()
+        win = _find_window(app, window_id)
+        if win is None:
+            return {"error": f"no window with id {window_id}"}
+        await win.async_set_fullscreen(fullscreen)
+        return {"ok": True, "window_id": window_id, "fullscreen": fullscreen}
+    except Exception as exc:
+        return _err("set_window_fullscreen", exc)
+
+
+# ------------------------------------------------------------- arrangements
+
+
+@mcp.tool()
+async def list_arrangements() -> Any:
+    """List saved window arrangements by name."""
+    try:
+        names = await iterm2.Arrangement.async_list(await _connection())
+        return {"arrangements": list(names)}
+    except Exception as exc:
+        return _err("list_arrangements", exc)
+
+
+@mcp.tool()
+async def save_arrangement(name: str) -> Any:
+    """Save the current windows/tabs/panes layout under NAME (overwrites)."""
+    try:
+        await iterm2.Arrangement.async_save(await _connection(), name)
+        return {"ok": True, "name": name}
+    except Exception as exc:
+        return _err("save_arrangement", exc)
+
+
+@mcp.tool()
+async def restore_arrangement(name: str, window_id: str = "") -> Any:
+    """Restore a saved arrangement by NAME (optionally into WINDOW_ID)."""
+    try:
+        await iterm2.Arrangement.async_restore(await _connection(), name,
+                                               window_id or None)
+        return {"ok": True, "name": name}
+    except Exception as exc:
+        return _err("restore_arrangement", exc)
+
+
+# ------------------------------------------------------------- tabs / panes
+
+
+@mcp.tool()
+async def close_tab(target: str, force: bool = False) -> Any:
+    """Close the tab that owns TARGET (a tab name or session_id)."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        _w, tab = _locate(app, session)
+        if tab is None:
+            return {"error": f"no tab found for {target!r}"}
+        await tab.async_close(force=force)
+        return {"ok": True, "tab_id": tab.tab_id}
+    except Exception as exc:
+        return _err("close_tab", exc)
+
+
+@mcp.tool()
+async def move_tab_to_window(target: str, window_id: str = "") -> Any:
+    """Reparent TARGET's tab. With WINDOW_ID, merge into that window; without,
+    split it off into a new window. This is the programmatic form of dragging a
+    tab between windows.
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        _w, tab = _locate(app, session)
+        if tab is None:
+            return {"error": f"no tab found for {target!r}"}
+        if window_id:
+            dest = _find_window(app, window_id)
+            if dest is None:
+                return {"error": f"no window with id {window_id}"}
+            await dest.async_set_tabs(list(dest.tabs) + [tab])
+            return {"ok": True, "tab_id": tab.tab_id, "merged_into": window_id}
+        new_wid = await tab.async_move_to_window()
+        return {"ok": True, "tab_id": tab.tab_id, "new_window_id": new_wid}
+    except Exception as exc:
+        return _err("move_tab_to_window", exc)
+
+
+@mcp.tool()
+async def set_tab_title(target: str, title: str) -> Any:
+    """Set a fixed title on TARGET's tab (stable override; empty clears it)."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        _w, tab = _locate(app, session)
+        if tab is None:
+            return {"error": f"no tab found for {target!r}"}
+        await tab.async_set_title(title)
+        return {"ok": True, "tab_id": tab.tab_id, "title": title}
+    except Exception as exc:
+        return _err("set_tab_title", exc)
+
+
+@mcp.tool()
+async def split_pane(target: str, vertical: bool = True, before: bool = False) -> Any:
+    """Split TARGET into a new pane. vertical=True stacks side-by-side.
+
+    Returns the new pane's {session_id, window_id, tab_id}.
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        new_session = await session.async_split_pane(vertical=vertical, before=before)
+        await app.async_refresh()
+        w, t = _locate(app, new_session)
+        return {"ok": True, "session_id": new_session.session_id,
+                "window_id": w.window_id if w else None,
+                "tab_id": t.tab_id if t else None}
+    except Exception as exc:
+        return _err("split_pane", exc)
+
+
+@mcp.tool()
+async def select_pane(target: str, direction: str) -> Any:
+    """Move pane focus within TARGET's tab. DIRECTION is above/below/left/right."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        _w, tab = _locate(app, session)
+        if tab is None:
+            return {"error": f"no tab found for {target!r}"}
+        dirs = {"above": iterm2.NavigationDirection.ABOVE,
+                "below": iterm2.NavigationDirection.BELOW,
+                "left": iterm2.NavigationDirection.LEFT,
+                "right": iterm2.NavigationDirection.RIGHT}
+        d = dirs.get(direction.lower())
+        if d is None:
+            return {"error": f"bad direction {direction!r}; use above/below/left/right"}
+        sid = await tab.async_select_pane_in_direction(d)
+        return {"ok": True, "selected_session_id": sid}
+    except Exception as exc:
+        return _err("select_pane", exc)
+
+
+# ------------------------------------------------------------- session ops
+
+
+@mcp.tool()
+async def close_session(target: str, force: bool = False) -> Any:
+    """Close a single session/pane (TARGET is a tab name or session_id)."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        await session.async_close(force=force)
+        return {"ok": True, "session_id": session.session_id}
+    except Exception as exc:
+        return _err("close_session", exc)
+
+
+@mcp.tool()
+async def restart_session(target: str, only_if_exited: bool = False) -> Any:
+    """Restart the program in TARGET (relaunch the shell/command)."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        await session.async_restart(only_if_exited=only_if_exited)
+        return {"ok": True, "session_id": session.session_id}
+    except Exception as exc:
+        return _err("restart_session", exc)
+
+
+@mcp.tool()
+async def get_history(target: str, max_lines: int = 200) -> Any:
+    """Return the last max_lines of TARGET's scrollback history (not just the
+    visible screen, unlike get_screen_contents). Latest last.
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        info = await session.async_get_line_info()
+        total = info.scrollback_buffer_height + info.mutable_area_height
+        last_abs = info.overflow + total
+        n = min(max(1, max_lines), total)
+        first = last_abs - n
+        contents = await session.async_get_contents(first, n)
+        lines = [c.string for c in contents]
+        # Trim trailing blanks.
+        while lines and not lines[-1].strip():
+            lines.pop()
+        return {"session_id": session.session_id, "lines": lines,
+                "history_lines": total}
+    except Exception as exc:
+        return _err("get_history", exc)
+
+
+@mcp.tool()
+async def set_grid_size(target: str, columns: int, rows: int) -> Any:
+    """Resize TARGET's grid to columns x rows character cells."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        await session.async_set_grid_size(iterm2.Size(columns, rows))
+        return {"ok": True, "session_id": session.session_id,
+                "columns": columns, "rows": rows}
+    except Exception as exc:
+        return _err("set_grid_size", exc)
+
+
+@mcp.tool()
+async def set_buried(target: str, buried: bool = True) -> Any:
+    """Bury (hide) or unbury a session. Buried sessions leave the tab bar but
+    stay alive and addressable.
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        await session.async_set_buried(buried)
+        return {"ok": True, "session_id": session.session_id, "buried": buried}
+    except Exception as exc:
+        return _err("set_buried", exc)
+
+
+@mcp.tool()
+async def load_url(target: str, url: str) -> Any:
+    """Open URL in TARGET (uses the session's semantic-history/URL handling)."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        await session.async_load_url(url)
+        return {"ok": True, "session_id": session.session_id, "url": url}
+    except Exception as exc:
+        return _err("load_url", exc)
+
+
+@mcp.tool()
+async def inject(target: str, text: str) -> Any:
+    """Inject TEXT into TARGET as if the running program had emitted it (parsed
+    as terminal output, including escape sequences) — distinct from send_text,
+    which simulates typing.
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        await session.async_inject(text.encode("utf-8"))
+        return {"ok": True, "session_id": session.session_id, "bytes": len(text)}
+    except Exception as exc:
+        return _err("inject", exc)
+
+
+# --------------------------------------------------- generic escape hatches
+
+
+async def _resolve_or_app(app, target: str):
+    """Resolve TARGET to a session, or return (None, None) for target 'app'."""
+    if target.strip().lower() == "app":
+        return None, None
+    return await _resolve(app, target)
+
+
+@mcp.tool()
+async def get_variable(target: str, name: str) -> Any:
+    """Read any iTerm2 variable. TARGET is a tab name/session_id, or "app" for
+    application-scope variables. NAME is like "session.name" or "user.foo".
+    """
+    try:
+        app = await _app()
+        if target.strip().lower() == "app":
+            value = await app.async_get_variable(name)
+            return {"scope": "app", "name": name, "value": value}
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        value = await session.async_get_variable(name)
+        return {"session_id": session.session_id, "name": name, "value": value}
+    except Exception as exc:
+        return _err("get_variable", exc)
+
+
+@mcp.tool()
+async def set_variable(target: str, name: str, value: Any) -> Any:
+    """Write any iTerm2 variable. TARGET is a tab name/session_id, or "app".
+    User variables must be under the "user." namespace.
+    """
+    try:
+        app = await _app()
+        if target.strip().lower() == "app":
+            await app.async_set_variable(name, value)
+            return {"ok": True, "scope": "app", "name": name}
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        await session.async_set_variable(name, value)
+        return {"ok": True, "session_id": session.session_id, "name": name}
+    except Exception as exc:
+        return _err("set_variable", exc)
+
+
+@mcp.tool()
+async def invoke_function(invocation: str, target: str = "") -> Any:
+    """Call any registered iTerm2 function in a session's context. INVOCATION is
+    like 'iterm2.get_string_value(key: "x")'. TARGET selects the session (self
+    or active if omitted). This is the escape hatch for API surface not wrapped
+    by a dedicated tool.
+    """
+    try:
+        app = await _app()
+        if target.strip():
+            session, err = await _resolve(app, target)
+            if err is not None:
+                return err
+        else:
+            sid = _self_session_id() or _active_session_id(app)
+            session = app.get_session_by_id(sid) if sid else None
+            if session is None:
+                return {"error": "no target session for invoke_function"}
+        result = await session.async_invoke_function(invocation)
+        return {"ok": True, "session_id": session.session_id, "result": result}
+    except Exception as exc:
+        return _err("invoke_function", exc)
+
+
+@mcp.tool()
+async def select_menu_item(identifier: str) -> Any:
+    """Trigger any main-menu command by its identifier (e.g. "Split Vertically
+    with Current Profile"). This reaches features that have no dedicated tool.
+    """
+    try:
+        await iterm2.MainMenu.async_select_menu_item(await _connection(), identifier)
+        return {"ok": True, "identifier": identifier}
+    except Exception as exc:
+        return _err("select_menu_item", exc)
+
+
+@mcp.tool()
+async def set_profile_property(target: str, property: str, value: Any) -> Any:
+    """Set any profile property on TARGET's session (session-local override).
+
+    PROPERTY is a profile setter name without the async_set_ prefix, e.g.
+    "transparency", "blur", "cursor_type", "normal_font", "use_bold_font",
+    "badge_text", "scrollback_lines". Any "*_color" value is parsed as #RRGGBB.
+    This is the escape hatch covering the ~200 profile settings.
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        profile = await session.async_get_profile()
+        setter = getattr(profile, f"async_set_{property}", None)
+        if setter is None:
+            return {"error": f"unknown profile property {property!r}"}
+        val = value
+        if property.endswith("_color") and isinstance(value, str):
+            parsed = _parse_hex(value)
+            if parsed is not None:
+                val = parsed
+        await setter(val)
+        return {"ok": True, "session_id": session.session_id, "property": property}
+    except Exception as exc:
+        return _err("set_profile_property", exc)
+
+
+@mcp.tool()
+async def get_theme() -> Any:
+    """Return the app's current theme attributes (e.g. ["dark"] / ["light"])."""
+    try:
+        app = await _app()
+        return {"theme": list(await app.async_get_theme())}
+    except Exception as exc:
+        return _err("get_theme", exc)
+
+
 # ------------------------------------------------------------- tabs / focus
 
 
