@@ -441,17 +441,25 @@ async def set_colors(target: str, background: str = "", foreground: str = "") ->
             return err
         prof = iterm2.LocalWriteOnlyProfile()
         applied = {}
+        # Profiles may have "use separate colors for light and dark mode" on, in
+        # which case the base color is ignored in favor of the _dark/_light
+        # variant for the active appearance. Set all three so the change lands
+        # regardless of that setting.
         if background:
             c = _parse_hex(background)
             if c is None:
                 return {"error": f"bad background color {background!r}; use #RRGGBB"}
             prof.set_background_color(c)
+            prof.set_background_color_dark(c)
+            prof.set_background_color_light(c)
             applied["background"] = background
         if foreground:
             c = _parse_hex(foreground)
             if c is None:
                 return {"error": f"bad foreground color {foreground!r}; use #RRGGBB"}
             prof.set_foreground_color(c)
+            prof.set_foreground_color_dark(c)
+            prof.set_foreground_color_light(c)
             applied["foreground"] = foreground
         if not applied:
             return {"error": "pass background and/or foreground as #RRGGBB"}
@@ -459,6 +467,169 @@ async def set_colors(target: str, background: str = "", foreground: str = "") ->
         return {"ok": True, "session_id": session.session_id, "applied": applied}
     except Exception as exc:
         return _err("set_colors", exc)
+
+
+def _color_hex(c) -> Optional[str]:
+    if c is None:
+        return None
+    return f"#{int(round(c.red)):02X}{int(round(c.green)):02X}{int(round(c.blue)):02X}"
+
+
+@mcp.tool()
+async def get_colors(target: str) -> Any:
+    """Read a tab's current colors (so you can inspect what is set).
+
+    Returns background/foreground/cursor as #RRGGBB, plus the light/dark
+    variants and whether the profile uses separate light/dark colors (when it
+    does, the *_dark or *_light value is what actually shows).
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        p = await session.async_get_profile()
+        g = lambda name: _color_hex(getattr(p, name, None))
+        return {
+            "session_id": session.session_id,
+            "use_separate_light_dark": bool(getattr(
+                p, "use_separate_colors_for_light_and_dark_mode", False)),
+            "background": g("background_color"),
+            "background_dark": g("background_color_dark"),
+            "background_light": g("background_color_light"),
+            "foreground": g("foreground_color"),
+            "cursor": g("cursor_color"),
+            "tab_color": g("tab_color"),
+            "use_tab_color": bool(getattr(p, "use_tab_color", False)),
+        }
+    except Exception as exc:
+        return _err("get_colors", exc)
+
+
+@mcp.tool()
+async def set_tab_color(target: str, color: str = "") -> Any:
+    """Set the color of a tab's bar (its tab/title-bar tint).
+
+    TARGET is a tab name or session_id. COLOR is #RRGGBB; pass an empty string
+    to turn the tab-bar tint off. Sets the light/dark variants too so it lands
+    regardless of the separate-colors setting.
+    """
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        prof = iterm2.LocalWriteOnlyProfile()
+        if color:
+            c = _parse_hex(color)
+            if c is None:
+                return {"error": f"bad color {color!r}; use #RRGGBB"}
+            for setter in (prof.set_tab_color, prof.set_tab_color_dark,
+                           prof.set_tab_color_light):
+                setter(c)
+            on = True
+        else:
+            on = False
+        for setter in (prof.set_use_tab_color, prof.set_use_tab_color_dark,
+                       prof.set_use_tab_color_light):
+            setter(on)
+        await session.async_set_profile_properties(prof)
+        return {"ok": True, "session_id": session.session_id,
+                "tab_color": color or None, "enabled": on}
+    except Exception as exc:
+        return _err("set_tab_color", exc)
+
+
+@mcp.tool()
+async def get_font(target: str) -> Any:
+    """Read a tab's font as "Name Size" (e.g. "Monaco 12")."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        p = await session.async_get_profile()
+        font = p.normal_font or ""
+        size = None
+        parts = font.rsplit(" ", 1)
+        if len(parts) == 2 and parts[1].replace(".", "", 1).isdigit():
+            size = float(parts[1]) if "." in parts[1] else int(parts[1])
+        return {"session_id": session.session_id, "font": font, "size": size}
+    except Exception as exc:
+        return _err("get_font", exc)
+
+
+@mcp.tool()
+async def set_font_size(target: str, size: int) -> Any:
+    """Change a tab's font size (points), keeping the same font family."""
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        p = await session.async_get_profile()
+        font = p.normal_font or "Monaco 12"
+        parts = font.rsplit(" ", 1)
+        family = parts[0] if len(parts) == 2 and parts[1].replace(".", "", 1).isdigit() else font
+        new_font = f"{family} {size}"
+        prof = iterm2.LocalWriteOnlyProfile()
+        prof.set_normal_font(new_font)
+        await session.async_set_profile_properties(prof)
+        return {"ok": True, "session_id": session.session_id, "font": new_font}
+    except Exception as exc:
+        return _err("set_font_size", exc)
+
+
+def _main_screen_height() -> Optional[float]:
+    """Primary display height in points (top-left <-> bottom-left conversion)."""
+    import subprocess
+    js = ('ObjC.import("AppKit");'
+          'JSON.stringify($.NSScreen.screens.objectAtIndex(0).frame.size.height)')
+    try:
+        out = subprocess.run(["osascript", "-l", "JavaScript", "-e", js],
+                             capture_output=True, text=True, timeout=5)
+        return float(out.stdout.strip())
+    except Exception:
+        return None
+
+
+@mcp.tool()
+async def capture_window(target: str, path: str = "") -> Any:
+    """Capture a screenshot (PNG) of the window that owns TARGET.
+
+    Returns {ok, path} with the saved file. Captures the window's screen region,
+    so it needs macOS Screen Recording permission for gjTerm2 (System Settings ›
+    Privacy & Security › Screen Recording); without it, returns an error telling
+    you to grant it.
+    """
+    import subprocess
+    try:
+        app = await _app()
+        session, err = await _resolve(app, target)
+        if err is not None:
+            return err
+        w, _t = _locate(app, session)
+        if w is None:
+            return {"error": f"no window found for {target!r}"}
+        f = await w.async_get_frame()
+        screen_h = _main_screen_height()
+        if screen_h is None:
+            return {"error": "could not determine screen height for capture"}
+        # AppKit bottom-left origin -> screencapture top-left region.
+        top_y = screen_h - (f.origin.y + f.size.height)
+        region = f"{int(f.origin.x)},{int(top_y)},{int(f.size.width)},{int(f.size.height)}"
+        out_path = path or f"/tmp/gjterm-capture-{session.session_id[:8]}.png"
+        proc = subprocess.run(
+            ["screencapture", "-x", "-o", "-R", region, out_path],
+            capture_output=True, text=True, timeout=15)
+        if proc.returncode != 0 or not os.path.exists(out_path):
+            detail = (proc.stderr or proc.stdout or "").strip()
+            return {"error": f"capture failed: {detail or 'no image'} "
+                             "(grant gjTerm2 Screen Recording permission)"}
+        return {"ok": True, "path": out_path, "region": region,
+                "window_id": w.window_id}
+    except Exception as exc:
+        return _err("capture_window", exc)
 
 
 @mcp.tool()
