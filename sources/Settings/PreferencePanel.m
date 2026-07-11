@@ -631,16 +631,8 @@ static iTermPreferencesSearchEngine *gSearchEngine;
                                              selector:@selector(scrimMouseUp:)
                                                  name:iTermPrefsScrimMouseUpNotification
                                                object:nil];
-    BOOL addVC = YES;
-#if DEBUG
-    if (@available(macOS 26.1, *)) {} else if (@available(macOS 26, *)) {
-        addVC = NO;
-    }
-#endif
-    if (addVC) {
-        iTermDonateViewController *vc = [[iTermDonateViewController alloc] init];
-        [self.window addTitlebarAccessoryViewController:vc];
-    }
+    // gjTerm2: the upstream donation nag (a Settings title-bar accessory linking
+    // to iterm2.com/donate) is removed — it solicits for iTerm2 and is not ours.
 
     if (@available(macOS 11, *)) {
         if (!_editCurrentSessionMode && iTermUserDefaultsUnsavedController.allowed) {
