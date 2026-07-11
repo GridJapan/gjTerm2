@@ -368,7 +368,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
 - (NSString *)_homeDirectoryDotDir {
     NSString *homedir = NSHomeDirectory();
     NSString *suiteName = [iTermUserDefaults customSuiteName];
-    NSString *baseName = suiteName ?: @"iterm2";
+    NSString *baseName = suiteName ?: @"gjterm2";
 
     __block NSString *xdgConfigHome = [homedir stringByAppendingPathComponent:@".config"];
     NSString *dotConfigDir = [xdgConfigHome stringByAppendingPathComponent:baseName];
