@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "gjterm-tabs": {
+      "command": "tools/gjterm-mcp/run.sh"
+    }
+  }
+}
