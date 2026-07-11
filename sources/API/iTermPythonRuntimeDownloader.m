@@ -340,9 +340,9 @@ NSString *const iTermPythonRuntimeDownloaderDidInstallRuntimeNotification = @"iT
             NSAlert *alert = [[NSAlert alloc] init];
             alert.messageText = @"Download Python Runtime?";
             if (requiredToContinue) {
-                alert.informativeText = [NSString stringWithFormat:@"The Python Runtime is used by Python scripts that work with iTerm2. It must be downloaded to complete the requested action. The download is about %@. OK to download it now?", [NSString it_formatBytes:info.size]];
+                alert.informativeText = [NSString stringWithFormat:@"The Python Runtime is used by Python scripts that work with gjTerm2. It must be downloaded to complete the requested action. The download is about %@. OK to download it now?", [NSString it_formatBytes:info.size]];
             } else {
-                alert.informativeText = [NSString stringWithFormat:@"The Python Runtime is used by Python scripts that work with iTerm2. The download is about %@. OK to download it now?", [NSString it_formatBytes:info.size]];
+                alert.informativeText = [NSString stringWithFormat:@"The Python Runtime is used by Python scripts that work with gjTerm2. The download is about %@. OK to download it now?", [NSString it_formatBytes:info.size]];
             }
             [alert addButtonWithTitle:silent ? @"Download" : @"OK"];
             [alert addButtonWithTitle:@"Cancel"];
@@ -444,10 +444,10 @@ NSString *const iTermPythonRuntimeDownloaderDidInstallRuntimeNotification = @"iT
     }
 
     if (pythonVersion) {
-        alert.informativeText = [NSString stringWithFormat:@"An iTerm2 Python Runtime with Python version %@ must be downloaded to proceed.%@",
+        alert.informativeText = [NSString stringWithFormat:@"An gjTerm2 Python Runtime with Python version %@ must be downloaded to proceed.%@",
                                  pythonVersion, reason];
     } else {
-        alert.informativeText = [NSString stringWithFormat:@"An iTerm2 Python Runtime must be downloaded to proceed.%@",
+        alert.informativeText = [NSString stringWithFormat:@"An gjTerm2 Python Runtime must be downloaded to proceed.%@",
                                  reason];
     }
     [alert runModal];

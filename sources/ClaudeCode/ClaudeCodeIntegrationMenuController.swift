@@ -44,7 +44,7 @@ final class ClaudeCodeIntegrationMenuController: NSObject {
         confirm.informativeText = "This removes the cc-status hook from "
             + "~/.claude/settings.json, the Claude Code workgroup from your "
             + "settings, and the Enter/Exit Workgroup triggers from every "
-            + "profile. You can reinstall any time using iTerm2 > Install Claude Code Integration."
+            + "profile. You can reinstall any time using gjTerm2 > Install Claude Code Integration."
         confirm.alertStyle = .warning
         confirm.addButton(withTitle: "Uninstall")
         confirm.addButton(withTitle: "Cancel")
@@ -102,7 +102,7 @@ final class ClaudeCodeIntegrationMenuController: NSObject {
         if iTermAPIHelper.isEnabled() {
             let apiAlert = NSAlert()
             apiAlert.messageText = "Disable the Python API?"
-            apiAlert.informativeText = "The installer enabled iTerm2\u{2019}s "
+            apiAlert.informativeText = "The installer enabled gjTerm2\u{2019}s "
                 + "Python API. Other scripts or integrations may be using "
                 + "it now. Leave it enabled, or turn it off?"
             apiAlert.addButton(withTitle: "Leave Enabled")

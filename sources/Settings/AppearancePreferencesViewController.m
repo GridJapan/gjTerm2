@@ -251,9 +251,9 @@ NSString *const iTermProcessTypeDidChangeNotification = @"iTermProcessTypeDidCha
         BOOL didChange = NO;
         if (isOn) {
             iTermWarningSelection selection =
-                [iTermWarning showWarningWithTitle:@"When iTerm2 is excluded from the dock, you can "
+                [iTermWarning showWarningWithTitle:@"When gjTerm2 is excluded from the dock, you can "
                                                    @"always get back to Preferences using the status "
-                                                   @"bar item. Look for an iTerm2 icon on the right "
+                                                   @"bar item. Look for an gjTerm2 icon on the right "
                                                    @"side of your menu bar."
                                            actions:@[ @"Exclude From Dock and App Switcher", @"Cancel" ]
                                         identifier:nil

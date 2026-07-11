@@ -99,7 +99,7 @@ class iTermKeyMappingRepair: NSObject {
         let bindingWord = count == 1 ? "key binding" : "key bindings"
         let message = """
             This will repair \(count) \(bindingWord) that \(count == 1 ? "was" : "were") corrupted by a bug in \
-            an earlier version of iTerm2. The affected \(count == 1 ? "binding currently displays" : "bindings currently display") incorrectly \
+            an earlier version of gjTerm2. The affected \(count == 1 ? "binding currently displays" : "bindings currently display") incorrectly \
             but \(count == 1 ? "functions" : "function") properly. After repair, \(count == 1 ? "it" : "they") will display correctly.
 
             Affected \(bindingWord):

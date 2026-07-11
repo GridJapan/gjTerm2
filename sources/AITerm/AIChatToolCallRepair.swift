@@ -34,7 +34,7 @@ enum AIChatToolCallRepair {
     // user message). Shared with ChatAgent.translate so the live reload path
     // and the repair pass emit identical filler text.
     static let interruptedToolCallOutput =
-        "[iTerm2 was restarted before this tool call completed. "
+        "[gjTerm2 was restarted before this tool call completed. "
         + "The call did not finish; assume no side effects took place "
         + "and re-issue if needed.]"
 

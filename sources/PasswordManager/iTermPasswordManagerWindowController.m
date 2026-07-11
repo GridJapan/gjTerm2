@@ -517,7 +517,7 @@ static NSArray<NSString *> *gTerminalCachedCombinedAccountNames;
 }
 
 - (IBAction)resetIntegrationConfiguration:(id)sender {
-    const iTermWarningSelection selection = [iTermWarning showWarningWithTitle:@"This will erase iTerm2’s configuration settings for this password manager. The actual passwords will remain unaffected. You’ll have to go through some setup steps to use it again. This action cannot be undone."
+    const iTermWarningSelection selection = [iTermWarning showWarningWithTitle:@"This will erase gjTerm2’s configuration settings for this password manager. The actual passwords will remain unaffected. You’ll have to go through some setup steps to use it again. This action cannot be undone."
                                                                        actions:@[ @"OK", @"Cancel" ]
                                                                      accessory:nil
                                                                     identifier:nil

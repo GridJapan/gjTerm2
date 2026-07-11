@@ -150,7 +150,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" alignment="center" id="0Bk-78-p2L">
                         <font key="font" metaFont="system"/>
-                        <string key="title">Use iTerm2 while you are apart from your Mac. You can control it via AI chat, view session content, and receive push notifications. End-to-end encryption keeps your data safe. &lt;a href="iterm2whatsnew:companion"&gt;Try it now!&lt;/a&gt;</string>
+                        <string key="title">Use gjTerm2 while you are apart from your Mac. You can control it via AI chat, view session content, and receive push notifications. End-to-end encryption keeps your data safe. &lt;a href="iterm2whatsnew:companion"&gt;Try it now!&lt;/a&gt;</string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

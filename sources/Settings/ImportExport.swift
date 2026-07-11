@@ -20,8 +20,8 @@ class ImportExport: NSObject {
         DLog("Begin")
         let savePanel = NSSavePanel()
         savePanel.allowedContentTypes = ["itermexport"].compactMap { UTType(filenameExtension: $0) }
-        savePanel.nameFieldStringValue = "iTerm2 State.itermexport"
-        savePanel.title = "Export iTerm2 Settings and Data"
+        savePanel.nameFieldStringValue = "gjTerm2 State.itermexport"
+        savePanel.title = "Export gjTerm2 Settings and Data"
 
         let response = savePanel.runModal()
         guard response == NSApplication.ModalResponse.OK else {
@@ -91,7 +91,7 @@ class ImportExport: NSObject {
 
         do {
             let selection = iTermWarning.show(
-                withTitle: "Any needed Python runtimes will be installed and secure settings will be updated, which may require you to enter your password. Then iTerm2 will restart and finish importing. This can take several minutes.",
+                withTitle: "Any needed Python runtimes will be installed and secure settings will be updated, which may require you to enter your password. Then gjTerm2 will restart and finish importing. This can take several minutes.",
                 actions: ["OK", "Cancel"],
                 accessory: nil,
                 identifier: nil,
@@ -170,19 +170,19 @@ class ImportExport: NSObject {
         let actionLabel: String
         if dryRun {
             confirmTitle = """
-            Dry-run mode is enabled. iTerm2 will log to Console.app what it would erase and stay running. Nothing will actually be deleted.
+            Dry-run mode is enabled. gjTerm2 will log to Console.app what it would erase and stay running. Nothing will actually be deleted.
             """
             confirmHeading = "Dry-Run Erase?"
             actionLabel = "Run Dry Run"
         } else {
             confirmTitle = """
-            The following will be erased and iTerm2 will quit immediately:
+            The following will be erased and gjTerm2 will quit immediately:
 
             \u{2022} Preferences (profiles, key bindings, arrangements, advanced settings)
             \u{2022} Saved windows and sessions
             \u{2022} Python API scripts and runtimes
             \u{2022} Secure settings
-            \u{2022} The contents of ~/.iterm2 and ~/Library/Application Support/iTerm2
+            \u{2022} The contents of ~/.iterm2 and ~/Library/Application Support/gjTerm2
 
             Items stored in the macOS Keychain (such as the AI API key and Password Manager entries) are not erased and must be removed manually from Keychain Access if you want them gone too. On systems with networked home directories, secure settings stored under /usr/local are written by an administrator and may also need to be removed manually.
 
@@ -210,7 +210,7 @@ class ImportExport: NSObject {
             _exit(0)
         }
         _ = iTermWarning.show(
-            withTitle: "iTerm2 logged what it would have erased to Console.app. Nothing was actually deleted because the “Dry-run Erase All Settings and Data” advanced setting is enabled.",
+            withTitle: "gjTerm2 logged what it would have erased to Console.app. Nothing was actually deleted because the “Dry-run Erase All Settings and Data” advanced setting is enabled.",
             actions: ["OK"],
             accessory: nil,
             identifier: nil,
@@ -862,13 +862,13 @@ private struct UserDefaultsImporterExporter {
         // to a separate ".private" suite that holds NoSyncSearchHistory2
         // and similar private state. Mirror its naming exactly: when no
         // -suite was given the private suite is the literal string
-        // "com.googlecode.iterm2.private", not a derivation of the bundle
+        // "co.gridjapan.gjterm2.private", not a derivation of the bundle
         // identifier.
         let privateSuite: String
         if let custom = iTermUserDefaults.customSuiteName() as String?, !custom.isEmpty {
             privateSuite = "\(custom).private"
         } else {
-            privateSuite = "com.googlecode.iterm2.private"
+            privateSuite = "co.gridjapan.gjterm2.private"
         }
         eraseSuite(privateSuite, action: action)
     }

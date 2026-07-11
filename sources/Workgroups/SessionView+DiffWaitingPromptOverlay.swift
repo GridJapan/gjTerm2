@@ -22,7 +22,7 @@ extension SessionView {
                 title: "Diff session is waiting for changes.",
                 body: "This session is set to Diff mode and only starts its "
                     + "command when git reports staged or unstaged changes. "
-                    + "The working tree is currently clean, or iTerm2 hasn’t "
+                    + "The working tree is currently clean, or gjTerm2 hasn’t "
                     + "finished its first check yet. Edit a file (or stage one) "
                     + "and the command will start on its own. To run it now "
                     + "anyway, click below.",

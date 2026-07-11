@@ -130,7 +130,7 @@ enum OrchestrationMentionRenderer {
                                    linkColor: NSColor,
                                    action: @escaping (NSPoint) -> ()) -> NSAttributedString? {
         guard let symbol = NSImage(systemSymbolName: "terminal",
-                                   accessibilityDescription: "iTerm2 session") else {
+                                   accessibilityDescription: "gjTerm2 session") else {
             return nil
         }
         let dynamicImage = DynamicImage(image: symbol,

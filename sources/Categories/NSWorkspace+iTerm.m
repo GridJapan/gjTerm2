@@ -415,20 +415,20 @@ withApplicationAtURL:appURL
         case iTermOpenStyleWindow:
         case iTermOpenStyleTab:
             if (isFileURL) {
-                selection = [iTermWarning showWarningWithTitle:@"iTerm2 can display files like this in its built-in web browser! Would you like to open this link in iTerm2?"
-                                                      actions:@[ @"Use Default App", @"Open in iTerm2", @"Cancel"]
+                selection = [iTermWarning showWarningWithTitle:@"gjTerm2 can display files like this in its built-in web browser! Would you like to open this link in gjTerm2?"
+                                                      actions:@[ @"Use Default App", @"Open in gjTerm2", @"Cancel"]
                                                     accessory:nil
                                                    identifier:identifier
                                                   silenceable:kiTermWarningTypePermanentlySilenceable
-                                                      heading:@"Open in iTerm2?"
+                                                      heading:@"Open in gjTerm2?"
                                                        window:window];
             } else {
-                selection = [iTermWarning showWarningWithTitle:@"iTerm2 can display web pages! Would you like to open this link in iTerm2?"
-                                                      actions:@[ @"Use Default Browser", @"Open in iTerm2", @"Cancel"]
+                selection = [iTermWarning showWarningWithTitle:@"gjTerm2 can display web pages! Would you like to open this link in gjTerm2?"
+                                                      actions:@[ @"Use Default Browser", @"Open in gjTerm2", @"Cancel"]
                                                     accessory:nil
                                                    identifier:identifier
                                                   silenceable:kiTermWarningTypePermanentlySilenceable
-                                                      heading:@"Open in iTerm2?"
+                                                      heading:@"Open in gjTerm2?"
                                                        window:window];
             }
             break;

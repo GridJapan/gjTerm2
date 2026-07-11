@@ -793,7 +793,7 @@ NS_ASSUME_NONNULL_BEGIN
             if (errorStatus != nil) {
                  NSAlert *alert = [[NSAlert alloc] init];
                  alert.messageText = @"Installation Failed";
-                 alert.informativeText = [NSString stringWithFormat:@"An error ocurred while installing the Python runtime. Remove ~/Library/Application Support/iTerm2/iterm2env and try again. The error was: %@", errorStatus.localizedDescription];
+                 alert.informativeText = [NSString stringWithFormat:@"An error ocurred while installing the Python runtime. Remove ~/Library/Application Support/gjTerm2/iterm2env and try again. The error was: %@", errorStatus.localizedDescription];
                  [alert runModal];
                  return;
              }
@@ -1246,7 +1246,7 @@ NS_ASSUME_NONNULL_BEGIN
     if ([self urlIsUnderScripts:url]) {
         return YES;
     }
-    NSString *message = [NSString stringWithFormat:@"Full-environment scripts must be located under in your Application Support/iTerm2/Scripts directory:\n%@", [[NSFileManager defaultManager] scriptsPath]];
+    NSString *message = [NSString stringWithFormat:@"Full-environment scripts must be located under in your Application Support/gjTerm2/Scripts directory:\n%@", [[NSFileManager defaultManager] scriptsPath]];
     [iTermWarning showWarningWithTitle:message
                                actions:@[ @"OK" ]
                              accessory:nil

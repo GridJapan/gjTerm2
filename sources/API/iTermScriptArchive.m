@@ -138,7 +138,7 @@ NSString *const iTermScriptMetadataName = @"metadata.json";
 }
 
 - (BOOL)userAcceptsTrustedScriptAutoLaunchInstall {
-    NSString *body = [NSString stringWithFormat:@"“%@” would like to launch automatically when iTerm2 starts. Would you like to allow that?", self.name];
+    NSString *body = [NSString stringWithFormat:@"“%@” would like to launch automatically when gjTerm2 starts. Would you like to allow that?", self.name];
     const iTermWarningSelection selection = [iTermWarning showWarningWithTitle:body
                                                                        actions:@[ @"Launch Automatically", @"Lauch Manually" ]
                                                                      accessory:nil
@@ -150,7 +150,7 @@ NSString *const iTermScriptMetadataName = @"metadata.json";
 }
 
 - (BOOL)userAcceptsExplicitAutoLaunchInstall {
-    NSString *body = [NSString stringWithFormat:@"“%@” can launch automatically when iTerm2 starts. Would you like to allow that?", self.name];
+    NSString *body = [NSString stringWithFormat:@"“%@” can launch automatically when gjTerm2 starts. Would you like to allow that?", self.name];
     const iTermWarningSelection selection = [iTermWarning showWarningWithTitle:body
                                                                        actions:@[ @"Launch Automatically", @"Lauch Manually" ]
                                                                      accessory:nil

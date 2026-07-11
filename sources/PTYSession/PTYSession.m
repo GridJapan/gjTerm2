@@ -2186,7 +2186,7 @@ ITERM_WEAKLY_REFERENCEABLE
                 // If contents are present, then system window restoration is bringing back a
                 // session.
                 aSession.guid = guid;
-                DLog(@"iTerm2 is starting up or has contents. Assign guid %@ to session %@ (session is loaded from saved arrangement. No content registered.)", guid, aSession);
+                DLog(@"gjTerm2 is starting up or has contents. Assign guid %@ to session %@ (session is loaded from saved arrangement. No content registered.)", guid, aSession);
             }
         }
 
@@ -2852,7 +2852,7 @@ ITERM_WEAKLY_REFERENCEABLE
 }
 
 - (NSSet<NSString *> *)jobsToIgnore {
-    NSArray<NSString *> *builtInJobsToIgnore = @[ @"login", @"iTerm2", @"ShellLauncher" ];
+    NSArray<NSString *> *builtInJobsToIgnore = @[ @"login", @"gjTerm2", @"ShellLauncher" ];
     return [NSSet setWithArray:[[_profile objectForKey:KEY_JOBS] ?: @[] arrayByAddingObjectsFromArray:builtInJobsToIgnore]];
 }
 
@@ -3065,7 +3065,7 @@ ITERM_WEAKLY_REFERENCEABLE
         }
     }
     if ([iTermAdvancedSettingsModel shouldSetLCTerminal]) {
-        env[@"LC_TERMINAL"] = @"iTerm2";
+        env[@"LC_TERMINAL"] = @"gjTerm2";
         env[@"LC_TERMINAL_VERSION"] = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     }
     if (env[PWD_ENVNAME] == nil && _sshState == iTermSSHStateNone) {
@@ -3090,7 +3090,7 @@ ITERM_WEAKLY_REFERENCEABLE
     env[@"ITERM_SESSION_ID"] = itermId;
     env[@"TERM_PROGRAM_VERSION"] = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     env[@"TERM_SESSION_ID"] = itermId;
-    env[@"TERM_PROGRAM"] = @"iTerm.app";
+    env[@"TERM_PROGRAM"] = @"gjTerm2.app";
     env[@"COLORTERM"] = @"truecolor";
     if ([iTermAdvancedSettingsModel shouldSetTerminfoDirs]) {
         env[@"TERMINFO_DIRS"] = [@[self.customTerminfoDir, @"/usr/share/terminfo"] componentsJoinedByString:@":"];
@@ -3258,7 +3258,7 @@ webViewConfiguration:(WKWebViewConfiguration *)webViewConfiguration
                 if (count > 0) {
                     return;
                 }
-                const iTermWarningSelection selection = [iTermWarning showWarningWithTitle:@"A browser session failed to start because the iTerm2 Browser Plugin couldn’t be found."
+                const iTermWarningSelection selection = [iTermWarning showWarningWithTitle:@"A browser session failed to start because the gjTerm2 Browser Plugin couldn’t be found."
                                            actions:@[ @"Download", @"Cancel" ]
                                          accessory:nil
                                         identifier:nil
@@ -10485,7 +10485,7 @@ typedef NS_ENUM(NSUInteger, PTYSessionTmuxReport) {
         actions = @[ @"OK" ];
     }
     const iTermWarningSelection selection =
-    [iTermWarning showWarningWithTitle:@"This instance of iTerm2 is already attached to this session"
+    [iTermWarning showWarningWithTitle:@"This instance of gjTerm2 is already attached to this session"
                                actions:actions
                              accessory:nil
                             identifier:@"AlreadyAttachedToTmuxSession"
@@ -15938,7 +15938,7 @@ typedef NS_ENUM(NSUInteger, PTYSessionTmuxReport) {
         NSString *identifier = @"UploadInUnsupportedFormatRequested";
         if (![self announcementWithIdentifier:identifier]) {
             iTermAnnouncementViewController *announcement =
-            [iTermAnnouncementViewController announcementWithTitle:@"An upload with an unsupported archive format was requested. You may need a newer version of iTerm2."
+            [iTermAnnouncementViewController announcementWithTitle:@"An upload with an unsupported archive format was requested. You may need a newer version of gjTerm2."
                                                              style:kiTermAnnouncementViewStyleWarning
                                                        withActions:@[]
                                                         completion:^(int selection) {}];

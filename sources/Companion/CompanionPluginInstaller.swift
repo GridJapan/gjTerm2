@@ -27,7 +27,7 @@ enum CompanionPluginInstallerError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .appSupportUnavailable:
-            return "Could not find iTerm2’s Application Support directory."
+            return "Could not find gjTerm2’s Application Support directory."
         case .downloadFailed(let reason):
             return "Download failed: \(reason)"
         case .badResponse(let code):

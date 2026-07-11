@@ -126,7 +126,7 @@
             if (_busy && stage == 2) {
                 step = prefix;
             } else {
-                step = [NSString stringWithFormat:@"%@ iTerm2 utility scripts.", prefix];
+                step = [NSString stringWithFormat:@"%@ gjTerm2 utility scripts.", prefix];
             }
             [lines addObject:step];
         }

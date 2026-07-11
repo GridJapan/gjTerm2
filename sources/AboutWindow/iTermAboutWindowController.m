@@ -16,7 +16,7 @@
 #import "NSObject+iTerm.h"
 #import "NSStringITerm.h"
 
-static NSString *iTermAboutWindowControllerWhatsNewURLString = @"iterm2://whats-new/";
+static NSString *iTermAboutWindowControllerWhatsNewURLString = @"gjterm2://whats-new/";
 
 static const CGFloat kSponsorImageHeight = 32.0;
 static const CGFloat kSponsorPadding = 8.0;
@@ -121,7 +121,7 @@ static const CGFloat kSponsorRowY = 170.0;
 
 - (NSArray<iTermSponsor *> *)buildUnifiedSponsorRow {
     NSArray<NSDictionary *> *sponsorData = @[
-        @{ @"image": @"whitebox_logo", @"title": @"Whitebox", @"url": @"https://whitebox.so/?utm_source=iTerm2" },
+        @{ @"image": @"whitebox_logo", @"title": @"Whitebox", @"url": @"https://whitebox.so/?utm_source=gjTerm2" },
         @{ @"image": @"coderabbitai",  @"url": @"https://coderabbit.ai/" },
         @{ @"image": @"SerpApi",       @"url": @"https://serpapi.com/?utm_source=iterm" },
         @{ @"image": @"LIMSIQ",        @"url": @"https://limsiq.com/iterm2?utm_source=iterm2&utm_medium=sponsorship&utm_campaign=about_box" },

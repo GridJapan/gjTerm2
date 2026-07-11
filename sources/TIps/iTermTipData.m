@@ -17,16 +17,16 @@
   return @{
     // Big new features
             @"000": @{ kTipTitleKey: @"Tip of the Day",
-                        kTipBodyKey: @"This window shows the iTerm2 tip of the day. It’ll appear every 24 hours to let you know about new features and hidden secrets. Hit “More Options” to view more tips or to stop getting them altogether." },
+                        kTipBodyKey: @"This window shows the gjTerm2 tip of the day. It’ll appear every 24 hours to let you know about new features and hidden secrets. Hit “More Options” to view more tips or to stop getting them altogether." },
             @"0000": @{ kTipTitleKey: @"Shell Integration",
-                         kTipBodyKey: @"The big new feature of iTerm2 version 3 is Shell Integration. Click “Learn More” for all the details.",
+                         kTipBodyKey: @"The big new feature of gjTerm2 version 3 is Shell Integration. Click “Learn More” for all the details.",
                           kTipUrlKey: @"https://iterm2.com/shell_integration.html" },
 
             @"0001": @{ kTipTitleKey: @"Timestamps",
                          kTipBodyKey: @"“View > Show Timestamps” shows the time (and date, if appropriate) when each line was last modified." },
 
             @"0002": @{ kTipTitleKey: @"Password Manager",
-                        kTipBodyKey: @"Did you know iTerm2 has a password manager? Open it with “Window > Password Manager.” You can define a Trigger to open it for you at a password prompt in “Settings > Profiles > Advanced > Triggers.”" },
+                        kTipBodyKey: @"Did you know gjTerm2 has a password manager? Open it with “Window > Password Manager.” You can define a Trigger to open it for you at a password prompt in “Settings > Profiles > Advanced > Triggers.”" },
             @"0003": @{ kTipTitleKey: @"Open Quickly",
                         kTipBodyKey: @"You can quickly search through your sessions with “View > Open Quickly” (⇧⌘O). You can type a query and sessions whose name, badge, current hostname, current user name, recent commands, and recent working directories match will be surfaced. It works best with Shell Integration so the user name, hostname, command, and directories can be known even while sshed.",
                         kTipUrlKey: @"https://iterm2.com/shell_integration.html" },
@@ -40,7 +40,7 @@
             @"0006": @{ kTipTitleKey: @"Copy with Styles",
                          kTipBodyKey: @"Copy a selection with ⌥⌘C to include styles such as colors and fonts. You can make this the default action for Copy in “Settings > Advanced.”" },
             @"0007": @{ kTipTitleKey: @"Inline Images",
-                        kTipBodyKey: @"iTerm2 can display images (even animated GIFs) inline.",
+                        kTipBodyKey: @"gjTerm2 can display images (even animated GIFs) inline.",
                         kTipUrlKey: @"https://iterm2.com/images.html" },
 
             @"0008": @{ kTipTitleKey: @"Automatic Profile Switching",
@@ -48,7 +48,7 @@
                         kTipUrlKey: @"https://iterm2.com/shell_integration.html" },
 
             @"0009": @{ kTipTitleKey: @"Captured Output",
-                        kTipBodyKey: @"iTerm2 can act like an IDE using the Captured Output feature. When it sees text matching a regular expression you define, like compiler errors, it shows the matching lines in the Toolbelt. You can click to jump to the line in your terminal and double-click to perform an action like opening an editor to the line with the error.",
+                        kTipBodyKey: @"gjTerm2 can act like an IDE using the Captured Output feature. When it sees text matching a regular expression you define, like compiler errors, it shows the matching lines in the Toolbelt. You can click to jump to the line in your terminal and double-click to perform an action like opening an editor to the line with the error.",
                         kTipUrlKey: @"https://iterm2.com/captured_output.html" },
 
             @"0010": @{ kTipTitleKey: @"Badges",
@@ -70,11 +70,11 @@
                          kTipBodyKey: @"The “Semantic History” feature allows you to ⌘-click on a file or URL to open it.", },
 
             @"0015": @{ kTipTitleKey: @"Tmux Integration",
-                        kTipBodyKey: @"If you use tmux, try running “tmux -CC” to get iTerm2’s tmux integration mode. The tmux windows show up as native iTerm2 windows, and you can use iTerm2’s keyboard shortcuts. It even works over ssh!",
+                        kTipBodyKey: @"If you use tmux, try running “tmux -CC” to get gjTerm2’s tmux integration mode. The tmux windows show up as native gjTerm2 windows, and you can use gjTerm2’s keyboard shortcuts. It even works over ssh!",
                         kTipUrlKey: @"https://gitlab.com/gnachman/iterm2/wikis/TmuxIntegration" },
 
             @"0016": @{ kTipTitleKey: @"Triggers",
-                        kTipBodyKey: @"iTerm2 can automatically perform actions you define when text matching a regular expression is received. For example, you can highlight text or show an alert box. Set it up in “Settings > Profiles > Advanced > Triggers.”",
+                        kTipBodyKey: @"gjTerm2 can automatically perform actions you define when text matching a regular expression is received. For example, you can highlight text or show an alert box. Set it up in “Settings > Profiles > Advanced > Triggers.”",
                         kTipUrlKey: @"https://www.iterm2.com/documentation-triggers.html" },
 
             @"0017": @{ kTipTitleKey: @"Smart Selection",
@@ -144,7 +144,7 @@
                         kTipBodyKey: @"If you put a slash in a profile’s tag, that implicitly defines a hierarchy. You can see it in the Profiles menu as nested submenus." },
 
             @"0036": @{ kTipTitleKey: @"Downloads",
-                        kTipBodyKey: @"iTerm2 can download files by base-64 encoding them. Click “Learn More” to download a shell script that makes it easy.",
+                        kTipBodyKey: @"gjTerm2 can download files by base-64 encoding them. Click “Learn More” to download a shell script that makes it easy.",
                         kTipUrlKey: @"https://iterm2.com/download.sh" },
 
             @"0037": @{ kTipTitleKey: @"Command Completion",
@@ -152,7 +152,7 @@
                         kTipUrlKey: @"https://iterm2.com/shell_integration.html" },
 
             @"0038": @{ kTipTitleKey: @"Recent Directories",
-                        kTipBodyKey: @"iTerm2 remembers which directories you use the most on each host that has Shell Integration installed. There’s a Toolbelt tool to browse them, and ⌥⌘/ gives you a popup sorted by frequency and recency of use.",
+                        kTipBodyKey: @"gjTerm2 remembers which directories you use the most on each host that has Shell Integration installed. There’s a Toolbelt tool to browse them, and ⌥⌘/ gives you a popup sorted by frequency and recency of use.",
                         kTipUrlKey: @"https://iterm2.com/shell_integration.html" },
 
             @"0039": @{ kTipTitleKey: @"Favorite Directories",
@@ -160,7 +160,7 @@
                         kTipUrlKey: @"https://iterm2.com/shell_integration.html" },
 
             @"0040": @{ kTipTitleKey: @"Shell Integration History",
-                        kTipBodyKey: @"Install Shell Integration and turn on “Settings > General > Save copy/paste and command history to disk” to remember command history per host across restarts of iTerm2.",
+                        kTipBodyKey: @"Install Shell Integration and turn on “Settings > General > Save copy/paste and command history to disk” to remember command history per host across restarts of gjTerm2.",
                         kTipUrlKey: @"https://iterm2.com/shell_integration.html" },
 
             @"0041": @{ kTipTitleKey: @"Paste File as Base64",
@@ -224,7 +224,7 @@
                          kTipBodyKey: @"If you paste text containing tabs, you’ll be asked if you want to convert them to spaces. It’s handy at the shell prompt to avoid triggering filename completion." },
 
             @"0061" : @{ kTipTitleKey: @"Bell Silencing",
-                         kTipBodyKey: @"Did you know? If the bell rings too often, you’ll be asked if you’d like to silence it temporarily. iTerm2 cares about your comfort." },
+                         kTipBodyKey: @"Did you know? If the bell rings too often, you’ll be asked if you’d like to silence it temporarily. gjTerm2 cares about your comfort." },
 
             @"0062" : @{ kTipTitleKey: @"Profile Search",
                          kTipBodyKey: @"Every list of profiles has a search field (e.g., in ”Settings > Profiles.”) You can use various operators to restrict your search query. Click “Learn More” for all the details.",
@@ -238,7 +238,7 @@
                         kTipBodyKey: @"You can have a separate font for ASCII versus non-ASCII text. Enable it in “Settings > Profiles > Text.”" },
 
             @"0065": @{ kTipTitleKey: @"Coprocesses",
-                        kTipBodyKey: @"A coprocess is a job, such as a shell script, that has a special relationship with a particular iTerm2 session. All output in a terminal window (that is, what you see on the screen) is also input to the coprocess. All output from the coprocess acts like text that the user is typing at the keyboard.",
+                        kTipBodyKey: @"A coprocess is a job, such as a shell script, that has a special relationship with a particular gjTerm2 session. All output in a terminal window (that is, what you see on the screen) is also input to the coprocess. All output from the coprocess acts like text that the user is typing at the keyboard.",
                         kTipUrlKey: @"https://iterm2.com/coprocesses.html" },
 
             @"0066": @{ kTipTitleKey: @"Touch Bar Customization",
@@ -260,7 +260,7 @@
                         kTipBodyKey: @"You can “bury” a session with “Session > Bury Session.” It remains hidden until you restore it by selecting it from “Session > Buried Sessions > Your session.”" },
 
             @"0072": @{ kTipTitleKey: @"Python API",
-                        kTipBodyKey: @"You can add custom behavior to iTerm2 using the Python API.",
+                        kTipBodyKey: @"You can add custom behavior to gjTerm2 using the Python API.",
                         kTipUrlKey: @"https://iterm2.com/python-api" },
 
             @"0073": @{ kTipTitleKey: @"Status Bar",
@@ -320,7 +320,7 @@
                         kTipBodyKey: @"Execute a series of actions in order with a single shortcut using “sequence” key bindings." },
 
             @"0092": @{ kTipTitleKey: @"Export/Import Settings",
-                        kTipBodyKey: @"Easily backup or transfer your iTerm2 settings using the Export/Import feature in “Settings > General > Settings”." },
+                        kTipBodyKey: @"Easily backup or transfer your gjTerm2 settings using the Export/Import feature in “Settings > General > Settings”." },
 
             @"0093": @{ kTipTitleKey: @"Multi-Session Bindings",
                         kTipBodyKey: @"Apply key bindings uniformly across multiple sessions for consistent control in different tabs or windows." },
@@ -395,7 +395,7 @@
                         kTipBodyKey: @"Reposition the Tip of the Day window conveniently on your screen, as it is now draggable." },
 
             @"0117": @{ kTipTitleKey: @"AI Chat",
-                        kTipBodyKey: @"iTerm2 now has an AI Chat feature! Use “Window > AI Chats” or “Edit > Explain Output with AI”. The assistant can interact with your terminal (with your permission) and explain command output, adding annotations right in the terminal." },
+                        kTipBodyKey: @"gjTerm2 now has an AI Chat feature! Use “Window > AI Chats” or “Edit > Explain Output with AI”. The assistant can interact with your terminal (with your permission) and explain command output, adding annotations right in the terminal." },
 
             @"0118": @{ kTipTitleKey: @"Web Browser Profiles",
                         kTipBodyKey: @"You can configure a profile to be a web browser! In “Settings > Profiles > General”, set “Profile Type” to “Web Browser”. Key bindings, smart selection, and the password manager all work in browser sessions.",

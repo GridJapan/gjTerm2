@@ -188,7 +188,7 @@ static const CGFloat kMarginBetweenTitleAndBody = 8;
                           withAttributes:bigTextAttributes];
     [attributedString iterm_appendString:@"\n"
                           withAttributes:bigTextAttributes];
-    [attributedString iterm_appendString:@"iTerm2 tip of the day"
+    [attributedString iterm_appendString:@"gjTerm2 tip of the day"
                           withAttributes:signatureAttributes];
 
     _body.attributedStringValue = attributedString;

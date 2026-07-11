@@ -88,7 +88,7 @@ static NSString *const iTermRestorableStateControllerUserDefaultsKeyCount = @"No
     const NSInteger count = [[iTermUserDefaults userDefaults] integerForKey:iTermRestorableStateControllerUserDefaultsKeyCount];
     if (count > 1) {
         const iTermWarningSelection selection =
-        [iTermWarning showWarningWithTitle:@"Some windows had trouble restoring last time iTerm2 launched. Try again?"
+        [iTermWarning showWarningWithTitle:@"Some windows had trouble restoring last time gjTerm2 launched. Try again?"
                                    actions:@[ @"OK", @"Cancel" ]
                                  accessory:nil
                                 identifier:@"RestoreWindows"

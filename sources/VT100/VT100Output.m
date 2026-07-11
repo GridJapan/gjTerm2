@@ -1179,7 +1179,7 @@ static int VT100OutputSafeAddInt(int l, int r) {
 
 - (NSData *)reportExtendedDeviceAttribute {
     NSString *versionString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSString *reportString = [NSString stringWithFormat:@"%cP>|iTerm2 %@%c\\", ESC, versionString, ESC];
+    NSString *reportString = [NSString stringWithFormat:@"%cP>|gjTerm2 %@%c\\", ESC, versionString, ESC];
     return [reportString dataUsingEncoding:NSUTF8StringEncoding];
 }
 

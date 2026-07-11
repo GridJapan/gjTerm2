@@ -110,7 +110,7 @@ class ChatSessionMentionAttachment: NSTextAttachment {
     // in an attachment so it lays out inline with the name.
     private static func iconString(font: NSFont, color: NSColor) -> NSAttributedString? {
         guard let symbol = NSImage(systemSymbolName: SFSymbol.terminal.rawValue,
-                                   accessibilityDescription: "iTerm2 session") else {
+                                   accessibilityDescription: "gjTerm2 session") else {
             return nil
         }
         let height = font.ascender - font.descender

@@ -35,9 +35,9 @@ static NSDateFormatter *gScriptHistoryDateFormatter;
     static id instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[self alloc] initWithName:@"iTerm2 App"
+        instance = [[self alloc] initWithName:@"gjTerm2 App"
                                      fullPath:nil
-                                   identifier:@"iTerm2"
+                                   identifier:@"gjTerm2"
                                      relaunch:nil];
     });
     return instance;
@@ -155,7 +155,7 @@ static NSDateFormatter *gScriptHistoryDateFormatter;
 }
 
 - (void)addClientOriginatedRPC:(NSString *)rpc {
-    NSString *string = [NSString stringWithFormat:@"Script → iTerm2 %@:\n%@\n", [gScriptHistoryDateFormatter stringFromDate:[NSDate date]], rpc];
+    NSString *string = [NSString stringWithFormat:@"Script → gjTerm2 %@:\n%@\n", [gScriptHistoryDateFormatter stringFromDate:[NSDate date]], rpc];
     [self appendCalls:string];
     [[NSNotificationCenter defaultCenter] postNotificationName:iTermScriptHistoryEntryDidChangeNotification
                                                         object:self
@@ -164,7 +164,7 @@ static NSDateFormatter *gScriptHistoryDateFormatter;
 }
 
 - (void)addServerOriginatedRPC:(NSString *)rpc {
-    NSString *string = [NSString stringWithFormat:@"Script ← iTerm2 %@:\n%@\n", [gScriptHistoryDateFormatter stringFromDate:[NSDate date]], rpc];
+    NSString *string = [NSString stringWithFormat:@"Script ← gjTerm2 %@:\n%@\n", [gScriptHistoryDateFormatter stringFromDate:[NSDate date]], rpc];
     [self appendCalls:string];
     [[NSNotificationCenter defaultCenter] postNotificationName:iTermScriptHistoryEntryDidChangeNotification
                                                         object:self

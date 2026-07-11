@@ -296,7 +296,7 @@ workingDirectory:(NSString *)workingDirectory
                                       completion:^(BOOL ignore) {}];
         return;
     }
-    if ([url.scheme isEqualToString:@"iterm2"]) {
+    if ([url.scheme isEqualToString:@"gjterm2"]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[[iTermApplication sharedApplication] delegate] handleInternalURL:url];
         });

@@ -63,7 +63,7 @@ static NSString *const iTermAPIScriptLauncherScriptDidFailUserNotificationCallba
                           configParser:(iTermSetupCfgParser *)configParser
                             completion:(void (^)(NSString *))completion {
     DLog(@"%@", fullPath);
-    NSString *message = [NSString stringWithFormat:@"The Python API script “%@” needs a newer version of the runtime environment for security reasons. You must upgrade it before this version of iTerm2 can launch the script.", fullPath.lastPathComponent];
+    NSString *message = [NSString stringWithFormat:@"The Python API script “%@” needs a newer version of the runtime environment for security reasons. You must upgrade it before this version of gjTerm2 can launch the script.", fullPath.lastPathComponent];
     const iTermWarningSelection selection =
     [iTermWarning showWarningWithTitle:message
                                actions:@[ @"Upgrade", @"Cancel" ]

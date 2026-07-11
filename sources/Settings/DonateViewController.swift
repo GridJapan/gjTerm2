@@ -15,14 +15,14 @@ private class DonateView: NSView {
 class DonateViewController: NSTitlebarAccessoryViewController {
     private static func textString() -> String {
         return ["Donate",
-                "Support iTerm2",
-                "iTerm2 is one person’s project. Donate now!",
-                "Keep iTerm2 alive — Donate today!",
-                "Love using iTerm2? Help keep it thriving!",
-                "iTerm2 needs your support – Donate here.",
-                "Help iTerm2 grow – Consider donating.",
-                "Keep the iTerm2 dream alive – Donate!",
-                "Support the creator of iTerm2 – Donate now!",
+                "Support gjTerm2",
+                "gjTerm2 is one person’s project. Donate now!",
+                "Keep gjTerm2 alive — Donate today!",
+                "Love using gjTerm2? Help keep it thriving!",
+                "gjTerm2 needs your support – Donate here.",
+                "Help gjTerm2 grow – Consider donating.",
+                "Keep the gjTerm2 dream alive – Donate!",
+                "Support the creator of gjTerm2 – Donate now!",
         ].randomElement()!
     }
 

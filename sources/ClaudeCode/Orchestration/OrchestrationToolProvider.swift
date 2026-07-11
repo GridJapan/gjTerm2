@@ -130,7 +130,7 @@ final class OrchestrationToolProvider: ToolProvider {
             name: "request_orchestration_enable",
             description: """
                 Ask the user to enable orchestration mode for this chat. Use this whenever the \
-                task requires interacting with the user's iTerm2 sessions and you don't currently \
+                task requires interacting with the user's gjTerm2 sessions and you don't currently \
                 have the tools to do it: sending text or keystrokes, running shell commands, \
                 reading on-screen output, controlling a running terminal program, watching a \
                 session for changes, or coordinating across multiple sessions (Code Review, Diff, \

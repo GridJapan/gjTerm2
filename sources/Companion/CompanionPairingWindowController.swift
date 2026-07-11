@@ -177,7 +177,7 @@ final class CompanionPairingWindowController: NSWindowController, NSWindowDelega
             // No remedy to offer: this is an administrator decision.
             showBlockedTop("Companion device pairing has been disabled. Check with your system administrator.")
         case .companionPluginMissing:
-            showBlockedTop("Install the iTerm2 Companion plugin below, then allow companion device pairing.")
+            showBlockedTop("Install the gjTerm2 Companion plugin below, then allow companion device pairing.")
         case .companionConsentNeeded:
             showBlockedTop("Turn on “Allow companion device pairing” below to begin.")
         case .allowed:
@@ -257,11 +257,11 @@ final class CompanionPairingWindowController: NSWindowController, NSWindowDelega
         consentCheckbox.state = SecureUserDefaults.instance.enableCompanionPairing.value ? .on : .off
 
         if CompanionPlugin.instance().isSuccess {
-            pluginDetailLabel.stringValue = "iTerm2 Companion plugin installed and working ✅"
+            pluginDetailLabel.stringValue = "gjTerm2 Companion plugin installed and working ✅"
             pluginDetailLabel.textColor = .systemGreen
             setPluginAction(title: "Reveal in Finder") { [weak self] in self?.revealPluginInFinder() }
         } else {
-            pluginDetailLabel.stringValue = "iTerm2 Companion plugin not installed"
+            pluginDetailLabel.stringValue = "gjTerm2 Companion plugin not installed"
             pluginDetailLabel.textColor = .secondaryLabelColor
             setPluginAction(title: "Download Plugin…") {
                 if let url = URL(string: "https://iterm2.com/companion-plugin.html") {
@@ -510,7 +510,7 @@ final class CompanionPairingWindowController: NSWindowController, NSWindowDelega
                 // the code below), so the retry uses a fresh QR.
                 self?.qrImageView.alphaValue = 1.0
                 self?.qrImageView.isHidden = false
-                self?.instructionsLabel.stringValue = "In the iTerm2 Buddy app on your iPhone, tap Scan and point the camera at this code."
+                self?.instructionsLabel.stringValue = "In the gjTerm2 Buddy app on your iPhone, tap Scan and point the camera at this code."
             }
         }
         controller.onPairingCodeChanged = { [weak self] code in
@@ -548,7 +548,7 @@ final class CompanionPairingWindowController: NSWindowController, NSWindowDelega
         } else {
             // Not listening at all: the phone cannot reach this Mac. The poll in
             // refreshGateState nudges a resume, so word it as transient.
-            instructionsLabel.stringValue = "A companion device is paired but iTerm2 isn’t listening for it yet. Reconnecting…"
+            instructionsLabel.stringValue = "A companion device is paired but gjTerm2 isn’t listening for it yet. Reconnecting…"
             checkmarkImageView.contentTintColor = .systemYellow
         }
         updateRelayStatusLabel()
@@ -590,7 +590,7 @@ final class CompanionPairingWindowController: NSWindowController, NSWindowDelega
         hideTopContent()
         qrImageView.alphaValue = 1.0
         qrImageView.isHidden = false
-        instructionsLabel.stringValue = "In the iTerm2 Buddy app on your iPhone, tap Scan and point the camera at this code."
+        instructionsLabel.stringValue = "In the gjTerm2 Buddy app on your iPhone, tap Scan and point the camera at this code."
         do {
             let code = try controller.startPairing()
             qrImageView.image = CompanionPairingController.qrImage(for: code.urlString(), pointSize: 240)

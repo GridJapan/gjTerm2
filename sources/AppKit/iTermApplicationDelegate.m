@@ -893,7 +893,7 @@ static NSModalResponse iTermCompareRenderingRunModal(id self, SEL _cmd) {
         DLog(@"applicationShouldTerminateAfterLastWindowClosed - user has not interacted with any session");
         if ([[NSDate date] timeIntervalSinceDate:launchTime_] < [iTermAdvancedSettingsModel minRunningTime]) {
             DLog(@"Returning NO");
-            NSLog(@"Not quitting iTerm2 because it ran very briefly and had no user interaction. Set the MinRunningTime float preference to 0 to turn this feature off.");
+            NSLog(@"Not quitting gjTerm2 because it ran very briefly and had no user interaction. Set the MinRunningTime float preference to 0 to turn this feature off.");
             return NO;
         }
     }
@@ -1002,13 +1002,13 @@ static NSModalResponse iTermCompareRenderingRunModal(id self, SEL _cmd) {
         RLog(@"Showing quit alert");
         NSString *message;
         if ([[iTermController sharedInstance] shouldLeaveSessionsRunningOnQuit]) {
-            message = @"Sessions will be restored automatically when iTerm2 is relaunched.";
+            message = @"Sessions will be restored automatically when gjTerm2 is relaunched.";
         } else {
             message = @"All sessions will be closed.";
         }
         [NSApp activateIgnoringOtherApps:YES];
         NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-        alert.messageText = @"Quit iTerm2?";
+        alert.messageText = @"Quit gjTerm2?";
         alert.informativeText = message;
         [alert addButtonWithTitle:@"OK"];
         [alert addButtonWithTitle:@"Cancel"];
@@ -1770,7 +1770,7 @@ static iTermKeyEventReplayer *gReplayer;
     mainMenuItem.submenu = [[NSApp mainMenu] it_deepCopy];
     [menu addItem:mainMenuItem];
     
-    item = [[[NSMenuItem alloc] initWithTitle:@"Quit iTerm2"
+    item = [[[NSMenuItem alloc] initWithTitle:@"Quit gjTerm2"
                                        action:@selector(terminate:)
                                 keyEquivalent:@""] autorelease];
     [menu addItem:item];
@@ -2160,7 +2160,7 @@ static iTermKeyEventReplayer *gReplayer;
     NSURL *url = [NSURL URLWithString:urlStr];
     NSString *scheme = [url scheme];
 
-    if ([scheme isEqualToString:@"iterm2"]) {
+    if ([scheme isEqualToString:@"gjterm2"]) {
         [self handleiTerm2URL:url internal:NO];
         return;
     }

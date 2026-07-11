@@ -36,7 +36,7 @@ struct CommandURLBuilder {
 
     var url: URL? {
         var components = URLComponents()
-        components.scheme = "iterm2"
+        components.scheme = "gjterm2"
         components.path = "/command"
         components.queryItems = [ URLQueryItem(name: "c", value: command) ]
         if let directory {

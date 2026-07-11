@@ -337,7 +337,7 @@ respectingTimeoutSetting:(BOOL)respectingTimeoutSetting
     DLog(@"saveLocalUserDefaultsToRemotePrefs interactive=%@\n%@", @(interactive), [NSThread callStackSymbols]);
     if ([self remotePrefsHaveChanged]) {
         NSString *theTitle =
-            [NSString stringWithFormat:@"Settings at %@ changed since iTerm2 started. "
+            [NSString stringWithFormat:@"Settings at %@ changed since gjTerm2 started. "
                                        @"Overwrite it?",
                                        [self customFolderOrURL]];
         if ([iTermWarning showWarningWithTitle:theTitle actions:@[ @"Overwrite",
@@ -363,7 +363,7 @@ respectingTimeoutSetting:(BOOL)respectingTimeoutSetting
     NSString *folder = [self expandedCustomFolderOrURL];
     if ([folder stringIsUrlLike]) {
         NSString *informativeText =
-            @"To make it available, first quit iTerm2 and then manually "
+            @"To make it available, first quit gjTerm2 and then manually "
             @"copy ~/Library/Preferences/com.googlecode.iterm2.plist to "
             @"your hosting provider.";
         NSAlert *alert = [[NSAlert alloc] init];
@@ -795,7 +795,7 @@ static NSDictionary *iTermRemotePreferencesSave(NSDictionary *myDict, NSString *
         return NO;
     }
     NSString *title =
-        [NSString stringWithFormat:@"iTerm2 can also keep your snippets, global notes, and session "
+        [NSString stringWithFormat:@"gjTerm2 can also keep your snippets, global notes, and session "
                                    @"icon customizations in the settings folder “%@” so they sync "
                                    @"across machines. Notes and snippets can contain sensitive text "
                                    @"such as passwords or tokens. Sync them too?",

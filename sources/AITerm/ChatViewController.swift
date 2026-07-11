@@ -2397,7 +2397,7 @@ extension Message.Content {
         case .unsupported:
             // A message a newer iTerm2 sent that this build can't decode.
             return AttributedStringForSystemMessageMarkdown(
-                "This message requires a newer version of iTerm2 to view.") {}
+                "This message requires a newer version of gjTerm2 to view.") {}
         case .plainText(let string, context: _):
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = .byWordWrapping
@@ -2496,7 +2496,7 @@ extension Message.Content {
                 case .active:
                     AttributedStringForSystemMessageMarkdown("All terminal commands in the linked session will be sent to AI automatically.") {}
                 case .stoppedAutomatically:
-                    AttributedStringForSystemMessageMarkdown("Terminal commands will no longer be sent to AI automatically. Automatic sending always terminates when iTerm2 restarts or the current chat changes.") {}
+                    AttributedStringForSystemMessageMarkdown("Terminal commands will no longer be sent to AI automatically. Automatic sending always terminates when gjTerm2 restarts or the current chat changes.") {}
                 }
             case let .offerLink(terminal: terminal, guid: _, name: name):
                 let displayName = name ?? "Unnamed session"
@@ -3536,7 +3536,7 @@ extension ChatViewController {
         let alert = NSAlert()
         alert.messageText = "Enable orchestration mode?"
         alert.informativeText = """
-            Orchestration mode lets the agent coordinate across any iTerm2 sessions. \
+            Orchestration mode lets the agent coordinate across any gjTerm2 sessions. \
             It can read screen contents from any session, but to type into a session requires \
             your permission. This is a more permissive model than when an agent is linked to \
             a single session, where there are very fine-grained permission settings.

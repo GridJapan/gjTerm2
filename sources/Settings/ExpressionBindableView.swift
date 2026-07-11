@@ -134,7 +134,7 @@ extension ExpressionBindableView {
             ### Background
             Binding a setting to an expression lets you change settings programmatically.
             
-            iTerm2 tracks a collection of “Variables” for each session. You can learn more about them in [Scripting Fundamentals](https://iterm2.com/documentation-scripting-fundamentals.html).
+            gjTerm2 tracks a collection of “Variables” for each session. You can learn more about them in [Scripting Fundamentals](https://iterm2.com/documentation-scripting-fundamentals.html).
             
             Typically this feature is used by binding a setting to a user-defined variable.
             

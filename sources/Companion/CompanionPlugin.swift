@@ -78,7 +78,7 @@ struct CompanionPlugin {
         guard let keyData = Data(base64Encoded: publicKeyB64),
               let publicKey = try? Curve25519.Signing.PublicKey(rawRepresentation: keyData),
               publicKey.isValidSignature(signature, for: message) else {
-            throw PluginError(reason: "The companion plugin's signature is invalid. Reinstall the plugin or upgrade iTerm2.")
+            throw PluginError(reason: "The companion plugin's signature is invalid. Reinstall the plugin or upgrade gjTerm2.")
         }
         RLog("Companion plugin signature is good")
     }

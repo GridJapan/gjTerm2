@@ -793,7 +793,7 @@ static NSError *SCPFileError(NSString *description) {
 }
 
 - (NSString *)tempFileName {
-    NSString *result = [NSString stringWithFormat:@".iTerm2.%@", [NSString uuid]];
+    NSString *result = [NSString stringWithFormat:@".gjTerm2.%@", [NSString uuid]];
 
     return result;
 }

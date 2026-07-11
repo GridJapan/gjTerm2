@@ -38,7 +38,7 @@ class AdapterPasswordDataSource: CommandLinePasswordDataSource {
             case .handshakeFailed:
                 return "Handshake failed."
             case .incompatibleProtocol:
-                return "Incompatible protocol. Please update iTerm2."
+                return "Incompatible protocol. Please update gjTerm2."
             case .adapterNotFound:
                 return "Adapter not found."
             case .invalidToken:
@@ -311,7 +311,7 @@ class AdapterPasswordDataSource: CommandLinePasswordDataSource {
     // MARK: - Credential Persistence
 
     private var keychainCredentialServiceName: String {
-        "iTerm2-Adapter-\(identifier)"
+        "gjTerm2-Adapter-\(identifier)"
     }
 
     private func persistCredentialsToKeychain(_ password: String) {

@@ -101,7 +101,7 @@ class PasteboardReporter: NSObject {
     private static func doubleCheck() -> Bool {
         let alert = NSAlert()
         alert.messageText = "Really Enable Clipboard Reporting?"
-        alert.informativeText = "Reporting the content of the clipboard to apps running inside iTerm2 may expose sensitive information such as passwords. Think carefully before enabling this."
+        alert.informativeText = "Reporting the content of the clipboard to apps running inside gjTerm2 may expose sensitive information such as passwords. Think carefully before enabling this."
         alert.alertStyle = .warning
         let button = alert.addButton(withTitle: "OK")
         if #available(macOS 11.0, *) {

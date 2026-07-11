@@ -202,7 +202,7 @@ extension PTYSession {
 
     private func url(annotation: String) -> URL? {
         var components = URLComponents()
-        components.scheme = "iterm2"
+        components.scheme = "gjterm2"
         components.path = "annotation"
         components.queryItems = [URLQueryItem(name: "ann", value: annotation),
                                  URLQueryItem(name: "s", value: guid)]
@@ -212,7 +212,7 @@ extension PTYSession {
     @objc(urlForPromptMark:)
     func promptMarkURL(mark: VT100ScreenMarkReading) -> URL {
         var components = URLComponents()
-        components.scheme = "iterm2"
+        components.scheme = "gjterm2"
         components.path = "reveal-mark"
         var items = [URLQueryItem]()
         items.append(URLQueryItem(name: "s", value: guid))
@@ -223,7 +223,7 @@ extension PTYSession {
 
     private func url(_ selection: iTermSelection, in snapshot: TerminalContentSnapshot) -> URL? {
         var components = URLComponents()
-        components.scheme = "iterm2"
+        components.scheme = "gjterm2"
         components.path = "/compound-location"
         var items = [URLQueryItem]()
         items.append(URLQueryItem(name: "session", value: guid))
@@ -274,7 +274,7 @@ extension PTYSession {
                                             sessionID: guid,
                                             baseOffset: screen.totalScrollbackOverflow()))
         guard let client = ChatClient.instance else {
-            iTermWarning.show(withTitle: "AI Chat could not be opened. Verify you only have one instance of iTerm2 running.",
+            iTermWarning.show(withTitle: "AI Chat could not be opened. Verify you only have one instance of gjTerm2 running.",
                               actions: ["OK"],
                               accessory: nil,
                               identifier: nil,

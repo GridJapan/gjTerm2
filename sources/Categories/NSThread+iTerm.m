@@ -12,7 +12,7 @@
 
 + (NSArray<NSString *> *)trimCallStackSymbols {
     return [[self callStackSymbols] filteredArrayUsingBlock:^BOOL(NSString *anObject) {
-        return [anObject containsString:@" iTerm2 "];
+        return [anObject containsString:@" gjTerm2 "];
     }];
 }
 

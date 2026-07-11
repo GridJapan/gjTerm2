@@ -37,7 +37,7 @@ extension RemoteCommand {
                     if iTermUserDefaults.userDefaults().object(forKey: kPreferenceKeyAISafetyCheck) == nil &&
                         !iTermUserDefaults.userDefaults().bool(forKey: nagKey) {
                         let selection = iTermWarning.show(
-                            withTitle: "iTerm2 can use AI to check the safety of commands suggested by your AI agent. Would you like to enable safety checking?\n\nWhen enabled, each proposed command will be sent to your configured AI provider for a safety check.",
+                            withTitle: "gjTerm2 can use AI to check the safety of commands suggested by your AI agent. Would you like to enable safety checking?\n\nWhen enabled, each proposed command will be sent to your configured AI provider for a safety check.",
                             actions: ["OK", "Cancel"],
                             accessory: nil,
                             identifier: nil,
@@ -83,7 +83,7 @@ extension RemoteCommand {
         }
         defaults.set(false, forKey: kPreferenceKeyAISafetyCheckProviderSwitchPending)
         let selection = iTermWarning.show(
-            withTitle: "Until now, iTerm2 checked the safety of AI-suggested commands on your Mac using Apple Intelligence, at no cost. It can now use your configured AI model instead, which is more accurate but sends each checked command to your AI provider and may incur charges.\n\nSwitch to your configured model? If you decline, iTerm2 keeps using Apple Intelligence.",
+            withTitle: "Until now, gjTerm2 checked the safety of AI-suggested commands on your Mac using Apple Intelligence, at no cost. It can now use your configured AI model instead, which is more accurate but sends each checked command to your AI provider and may incur charges.\n\nSwitch to your configured model? If you decline, gjTerm2 keeps using Apple Intelligence.",
             actions: ["Switch to My Model", "Keep Apple Intelligence"],
             accessory: nil,
             identifier: nil,

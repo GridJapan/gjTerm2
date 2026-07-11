@@ -1,8 +1,8 @@
 ORIG_PATH := $(PATH)
 PATH := /opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-ITERM_PID=$(shell pgrep "iTerm2")
+ITERM_PID=$(shell pgrep "gjTerm2")
 APPS := /Applications
-ITERM_CONF_PLIST = $(HOME)/Library/Preferences/com.googlecode.iterm2.plist
+ITERM_CONF_PLIST = $(HOME)/Library/Preferences/co.gridjapan.gjterm2.plist
 # Local checkout of the iterm2-website repo, where built plugins are published.
 ITERM2_WEBSITE ?= $(HOME)/iterm2-website
 COMPACTDATE=$(shell date +"%Y%m%d")
@@ -259,7 +259,7 @@ TAGS:
 	find . -name "*.[mhMH]" -exec etags -o ./TAGS -a '{}' +
 
 install: | Deployment backup-old-iterm
-	cp -R $(BUILD_DIR)/Deployment/iTerm2.app $(APPS)
+	cp -R $(BUILD_DIR)/Deployment/gjTerm2.app $(APPS)
 
 Development:
 	echo "Using PATH for build: $(PATH)"
@@ -285,31 +285,31 @@ companion-iphone: force
 	Companion/tools/run_on_iphone.sh $(COMPANION_DEVICE)
 
 open: Development
-	open -W -n "$(BUILD_DIR)/Development/iTerm2.app" --args -suite $(notdir $(CURDIR))
+	open -W -n "$(BUILD_DIR)/Development/gjTerm2.app" --args -suite $(notdir $(CURDIR))
 
 run: Development
-	"$(BUILD_DIR)/Development/iTerm2.app/Contents/MacOS/iTerm2" -suite $(notdir $(CURDIR)) & \
+	"$(BUILD_DIR)/Development/gjTerm2.app/Contents/MacOS/gjTerm2" -suite $(notdir $(CURDIR)) & \
 	pid=$$!; \
 	trap 'kill $$pid 2>/dev/null' INT TERM; \
 	( sleep 1 && osascript -e "tell application \"System Events\" to set frontmost of (first process whose unix id is $$pid) to true" >/dev/null 2>&1 ) & \
 	wait $$pid
 
 runbg: Development
-	"$(BUILD_DIR)/Development/iTerm2.app/Contents/MacOS/iTerm2" -suite $(notdir $(CURDIR)) & \
+	"$(BUILD_DIR)/Development/gjTerm2.app/Contents/MacOS/gjTerm2" -suite $(notdir $(CURDIR)) & \
 	pid=$$!; \
 	trap 'kill $$pid 2>/dev/null' INT TERM; \
 	( sleep 1 && osascript -e "tell application \"System Events\" to set frontmost of (first process whose unix id is $$pid) to true" >/dev/null 2>&1 ) & \
 
 watch: Development
-	tools/run.sh "$(BUILD_DIR)/Development/iTerm2.app/Contents/MacOS/iTerm2" "$(BUILD_DIR)" -suite iterm2-dev
+	tools/run.sh "$(BUILD_DIR)/Development/gjTerm2.app/Contents/MacOS/gjTerm2" "$(BUILD_DIR)" -suite iterm2-dev
 
 devzip: Development
 	cd $(BUILD_DIR)/Development && \
-	zip -r iTerm2-$(NAME).zip iTerm2.app
+	zip -r gjTerm2-$(NAME).zip gjTerm2.app
 
 zip: Deployment
 	cd $(BUILD_DIR)/Deployment && \
-	zip -r iTerm2-$(NAME).zip iTerm2.app
+	zip -r gjTerm2-$(NAME).zip gjTerm2.app
 
 clean:
 	rm -rf "$(BUILD_DIR)"
@@ -327,14 +327,14 @@ clean:
 	git checkout last-xcode-version
 
 backup-old-iterm:
-	if [[ -d $(APPS)/iTerm2.app.bak ]] ; then rm -fr $(APPS)/iTerm2.app.bak ; fi
-	if [[ -d $(APPS)/iTerm2.app ]] ; then \
-	/bin/mv $(APPS)/iTerm2.app $(APPS)/iTerm2.app.bak ;\
-	 cp $(ITERM_CONF_PLIST) $(APPS)/iTerm2.app.bak/Contents/ ; \
+	if [[ -d $(APPS)/gjTerm2.app.bak ]] ; then rm -fr $(APPS)/gjTerm2.app.bak ; fi
+	if [[ -d $(APPS)/gjTerm2.app ]] ; then \
+	/bin/mv $(APPS)/gjTerm2.app $(APPS)/gjTerm2.app.bak ;\
+	 cp $(ITERM_CONF_PLIST) $(APPS)/gjTerm2.app.bak/Contents/ ; \
 	fi
 
 restart:
-	PATH=$(ORIG_PATH) /usr/bin/open /Applications/iTerm2.app &
+	PATH=$(ORIG_PATH) /usr/bin/open /Applications/gjTerm2.app &
 	/bin/kill -TERM $(ITERM_PID)
 
 release:

@@ -340,7 +340,7 @@ class CommandInfoViewController: NSViewController {
         }
 
         var components = URLComponents()
-        components.scheme = "iterm2"
+        components.scheme = "gjterm2"
         components.path = "/command"
         var queryItems = [URLQueryItem(name: "c", value: command)]
         if let directory {

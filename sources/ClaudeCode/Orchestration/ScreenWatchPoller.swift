@@ -356,7 +356,7 @@ final class ScreenWatchPoller {
 
     private static func systemPrompt(for watcher: WorkgroupWatcher) -> String {
         return """
-        You are a silent monitor inside iTerm2. You are watching one terminal \
+        You are a silent monitor inside gjTerm2. You are watching one terminal \
         session that an automated orchestrator is driving. The program in it \
         (often a coding agent or another interactive TUI) is being judged by \
         reading its rendered screen.

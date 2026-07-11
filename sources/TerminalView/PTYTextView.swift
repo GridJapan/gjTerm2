@@ -1005,7 +1005,7 @@ extension PTYTextView {
     func saveArchive(_ sender: Any) {
         if let window = self.window {
             let savePanel = iTermModernSavePanel()
-            savePanel.defaultFilename = ((delegate?.textViewVariablesScope().value(forVariableName: iTermVariableKeySessionName) as? String) ?? "iTerm2 Session") + ".itermarchive"
+            savePanel.defaultFilename = ((delegate?.textViewVariablesScope().value(forVariableName: iTermVariableKeySessionName) as? String) ?? "gjTerm2 Session") + ".itermarchive"
             savePanel.preferredSSHIdentity = .localhost
             savePanel.allowedContentTypes = [ UTType(filenameExtension: "itermarchive")! ]
             Task {

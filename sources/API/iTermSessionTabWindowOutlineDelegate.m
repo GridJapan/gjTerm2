@@ -209,7 +209,7 @@
 }
 
 - (NSString *)displayName {
-    return @"iTerm2";
+    return @"gjTerm2";
 }
 
 - (iTermVariableScope *)scope {

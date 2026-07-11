@@ -80,7 +80,7 @@ class OnePasswordUtils {
         let alert = NSAlert()
         alert.messageText = "OnePassword Unavailable"
         if let path = path {
-            alert.informativeText = "The existing installation of the OnePassword CLI at \(path) is an incompatible. The iTerm2 integration requires version 2."
+            alert.informativeText = "The existing installation of the OnePassword CLI at \(path) is an incompatible. The gjTerm2 integration requires version 2."
         } else {
             alert.informativeText = "Version 2 of the OnePassword CLI could not be found. Check that \(OnePasswordUtils.pathToCLI) is installed and has version 2.x."
         }
@@ -92,7 +92,7 @@ class OnePasswordUtils {
     private static func showCannotFindCLIMessage() -> Bool {
         let alert = NSAlert()
         alert.messageText = "Can’t Find 1Password CLI"
-        alert.informativeText = "In order to use the 1Password integration, iTerm2 needs to know where to find the CLI app named “op”. It’s normally in /usr/local/bin. If you have installed it elsewhere, please select Locate to provide its location."
+        alert.informativeText = "In order to use the 1Password integration, gjTerm2 needs to know where to find the CLI app named “op”. It’s normally in /usr/local/bin. If you have installed it elsewhere, please select Locate to provide its location."
         alert.addButton(withTitle: "Locate")
         alert.addButton(withTitle: "Cancel")
         return alert.runModal() == .alertFirstButtonReturn

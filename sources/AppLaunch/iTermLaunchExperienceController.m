@@ -220,7 +220,7 @@ typedef NS_ENUM(NSUInteger, iTermLaunchExperienceChoice) {
             command = @"pip3 install --user --upgrade iterm2";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSString *message = [NSString stringWithFormat:@"The system Python's iterm2 module is out of date and won't work with this version of iTerm2. Run `%@` to fix it.", command];
+            NSString *message = [NSString stringWithFormat:@"The system Python's iterm2 module is out of date and won't work with this version of gjTerm2. Run `%@` to fix it.", command];
             const iTermWarningSelection selection =
             [iTermWarning showWarningWithTitle:message
                                        actions:@[ @"Copy Command", @"Ignore", @"Remind me Later"]
@@ -274,7 +274,7 @@ typedef NS_ENUM(NSUInteger, iTermLaunchExperienceChoice) {
 }
 
 - (void)warnAboutChangeToDefaultPasteBehavior {
-    [iTermWarning showWarningWithTitle:@"iTerm2 no longer warns before a multi-line paste, unless you are at the shell prompt."
+    [iTermWarning showWarningWithTitle:@"gjTerm2 no longer warns before a multi-line paste, unless you are at the shell prompt."
                                actions:@[ @"OK" ]
                              accessory:nil
                             identifier:nil

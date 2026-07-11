@@ -439,7 +439,7 @@ static BOOL iTermAPIHelperLastApplescriptAuthRequiredSetting;
 
     // "Reveal Preference" is a one-time navigation action and shouldn't be remembered.
     iTermWarning *warning = [[iTermWarning alloc] init];
-    warning.title = @"The location of your Application Support directory appears to have moved or its contents have changed unexpectedly. As a precaution, the authentication mechanism for Python API scripts for iTerm2 has been reverted to always require Automation permission.";
+    warning.title = @"The location of your Application Support directory appears to have moved or its contents have changed unexpectedly. As a precaution, the authentication mechanism for Python API scripts for gjTerm2 has been reverted to always require Automation permission.";
     warning.actionLabels = @[ @"OK", @"Reveal Preference" ];
     warning.identifier = @"NoSyncAppSupportMoved";
     warning.warningType = kiTermWarningTypePermanentlySilenceable;
@@ -534,7 +534,7 @@ static BOOL iTermAPIHelperLastApplescriptAuthRequiredSetting;
     NSString *path = [self noauthPath];
     path = [path stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
     path = [path stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\\\\\""];
-    NSString *sourceCode = [NSString stringWithFormat:@"do shell script \"umask 077; TF=$(mktemp); printf '%%s' '%@' > \\\"$TF\\\" && chmod a+r \\\"$TF\\\" && mv \\\"$TF\\\" \\\"%@\\\" || rm -f \\\"$TF\\\"\" with prompt \"iTerm2 needs to modify a secure setting.\" with administrator privileges",
+    NSString *sourceCode = [NSString stringWithFormat:@"do shell script \"umask 077; TF=$(mktemp); printf '%%s' '%@' > \\\"$TF\\\" && chmod a+r \\\"$TF\\\" && mv \\\"$TF\\\" \\\"%@\\\" || rm -f \\\"$TF\\\"\" with prompt \"gjTerm2 needs to modify a secure setting.\" with administrator privileges",
                             [self noauthMagic],
                             path];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:sourceCode];
@@ -624,7 +624,7 @@ static BOOL iTermAPIHelperLastApplescriptAuthRequiredSetting;
     warning.actionLabels = @[ @"OK", @"Cancel" ];
     warning.identifier = iTermAPIHelperEnablePythonAPIWarningIdentifier;
     warning.warningType = forced ? kiTermWarningTypePersistent : kiTermWarningTypePermanentlySilenceable;
-    warning.title = @"The Python API allows scripts you run to control iTerm2 and access all its data.";
+    warning.title = @"The Python API allows scripts you run to control gjTerm2 and access all its data.";
     static BOOL showing;
     if (showing) {
         // This can happen because the call to -runModal below starts a runloop and a delayed perform can then call this.
@@ -1500,7 +1500,7 @@ static BOOL iTermAPIHelperLastApplescriptAuthRequiredSetting;
     }
 
     NSString *message =
-        @"Another process is trying to use the iTerm2 API. The API allows a script to control iTerm2 and view and modify its contents. Allow the connection?";
+        @"Another process is trying to use the gjTerm2 API. The API allows a script to control gjTerm2 and view and modify its contents. Allow the connection?";
 
     if ([iTermAdvancedSettingsModel setCookie]) {
         message = [NSString stringWithFormat:@"%@\n\nAlthough you have chosen to allow connections automatically, this script has not presented a valid cookie.", message];

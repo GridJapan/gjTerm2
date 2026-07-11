@@ -70,7 +70,7 @@
     // This is the outer version. It is set in [-iTermRecordingCodec exportRecording:from:to:window:].
     NSArray<NSNumber *> *supportedVersions = @[ @1, @2, @3, @4 ];
     if (![supportedVersions containsObject:dict[@"version"]]) {
-        [iTermWarning showWarningWithTitle:@"This recording is from a newer version of iTerm2 and cannot be replayed in this version."
+        [iTermWarning showWarningWithTitle:@"This recording is from a newer version of gjTerm2 and cannot be replayed in this version."
                                    actions:@[ @"OK" ]
                              actionMapping:nil
                                  accessory:nil

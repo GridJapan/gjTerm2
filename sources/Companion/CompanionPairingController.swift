@@ -110,12 +110,12 @@ final class CompanionPairingController: NSObject {
         switch verdict {
         case .peerMustUpgrade:
             alert.messageText = "Companion Device Needs an Update"
-            alert.informativeText = "The iTerm2 Buddy app on your phone is too old to connect to "
-                + "this version of iTerm2. Update the iPhone app to continue."
+            alert.informativeText = "The gjTerm2 Buddy app on your phone is too old to connect to "
+                + "this version of gjTerm2. Update the iPhone app to continue."
         case .selfMustUpgrade:
-            alert.messageText = "iTerm2 Needs an Update"
-            alert.informativeText = "This version of iTerm2 is too old to connect to the iTerm2 "
-                + "Buddy app on your phone. Update iTerm2 to continue."
+            alert.messageText = "gjTerm2 Needs an Update"
+            alert.informativeText = "This version of gjTerm2 is too old to connect to the gjTerm2 "
+                + "Buddy app on your phone. Update gjTerm2 to continue."
         case .compatible:
             return
         }
@@ -156,7 +156,7 @@ final class CompanionPairingController: NSObject {
             let alert = NSAlert()
             alert.messageText = "Re-pair Your Companion Device"
             alert.informativeText =
-                "The iTerm2 server has moved to a new address. Your paired "
+                "The gjTerm2 server has moved to a new address. Your paired "
                 + "iPhone is still registered with the old server. The old "
                 + "server will go away soon. You should re-pair to avoid "
                 + "problems when that happens."

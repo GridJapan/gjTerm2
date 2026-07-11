@@ -106,7 +106,7 @@ static NSString *const kOldStyleUrlHandlersUserDefaultsKey = @"URLHandlers";
 }
 
 - (void)registerForiTerm2Scheme {
-    LSSetDefaultHandlerForURLScheme((CFStringRef)@"iterm2",
+    LSSetDefaultHandlerForURLScheme((CFStringRef)@"gjterm2",
                                     (CFStringRef)[[NSBundle mainBundle] bundleIdentifier]);
 }
 

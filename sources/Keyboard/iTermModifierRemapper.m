@@ -628,7 +628,7 @@
         DLog(@"Return remapped event: %@", [NSEvent eventWithCGEvent:remappedEvent]);
         return remappedEvent;
     } else {
-        DLog(@"iTerm2 not active. The active app is %@", [[NSWorkspace sharedWorkspace] frontmostApplication]);
+        DLog(@"gjTerm2 not active. The active app is %@", [[NSWorkspace sharedWorkspace] frontmostApplication]);
         return event;
     }
 }

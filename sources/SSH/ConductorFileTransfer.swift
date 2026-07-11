@@ -46,7 +46,7 @@ class ConductorFileTransfer: TransferrableFile {
 
     override func displayName() -> String? {
         return """
-        iTerm2 SSH Integration Protocol
+        gjTerm2 SSH Integration Protocol
         User name: \(path.username ?? "(unknown)")")
         Host: \(path.hostname!)
         File: \(path.path!)"
@@ -100,7 +100,7 @@ class ConductorFileTransfer: TransferrableFile {
         guard let downloads = FileManager.default.downloadsDirectory() else {
             throw ConductorFileTransferError("Unable to find Downloads folder")
         }
-        let tempFileName = ".iTerm2.\(UUID().uuidString)"
+        let tempFileName = ".gjTerm2.\(UUID().uuidString)"
         return downloads.appendingPathComponent(tempFileName)
     }
 

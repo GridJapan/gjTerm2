@@ -139,7 +139,7 @@ fileprivate class LegacyKeychainAccount: NSObject, PasswordManagerAccount {
     fileprivate init?(serviceName: String, _ dict: NSDictionary) {
         self.serviceName = serviceName
         if let combinedAccountName = dict[kSecAttrAccount] as? String,
-            dict[kSecAttrLabel] as? String == "iTerm2" {
+            dict[kSecAttrLabel] as? String == "gjTerm2" {
             if let range = combinedAccountName.range(of: accountNameUserNameSeparator) {
                 accountName = String(combinedAccountName[..<range.lowerBound])
                 userName = String(combinedAccountName[range.upperBound...])
@@ -216,9 +216,9 @@ class KeychainPasswordDataSource: NSObject, PasswordManagerDataSource {
     private let browser: Bool
     private var serviceName: String {
         if browser {
-            "iTerm2-Browser"
+            "gjTerm2-Browser"
         } else {
-            "iTerm2"
+            "gjTerm2"
         }
     }
     init(browser: Bool) {

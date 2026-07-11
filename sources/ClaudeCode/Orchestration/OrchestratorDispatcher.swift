@@ -449,7 +449,7 @@ final class OrchestratorDispatcher {
                     watcher: watcher,
                     reason: .watcherDropped,
                     stateReached: "",
-                    detail: "Watch dropped after iTerm2 restart: the session for \(watcher.roleName) in \(watcher.workgroupName) could not be restored.")
+                    detail: "Watch dropped after gjTerm2 restart: the session for \(watcher.roleName) in \(watcher.workgroupName) could not be restored.")
             }
         }
         // Seed history for every surviving watcher's session. Use the
@@ -1486,7 +1486,7 @@ final class OrchestratorDispatcher {
                     reason: "Notifications are not enabled on the paired phone yet. Call request_notification_permission first.")
             case (_, .denied):
                 throw OrchestratorError.unsupported(
-                    reason: "The user has notifications turned off for iTerm2 Buddy. Do not push them about it; they can enable it in iOS Settings if they want alerts.")
+                    reason: "The user has notifications turned off for gjTerm2 Buddy. Do not push them about it; they can enable it in iOS Settings if they want alerts.")
             default:
                 throw OrchestratorError.unsupported(
                     reason: "No paired companion phone is registered for notifications.")
@@ -1524,7 +1524,7 @@ final class OrchestratorDispatcher {
             return .ack
         case .denied:
             throw OrchestratorError.unsupported(
-                reason: "The user declined notification permission. Do not ask again; iOS only shows the prompt once. If they change their mind they can enable notifications for iTerm2 Buddy in iOS Settings.")
+                reason: "The user declined notification permission. Do not ask again; iOS only shows the prompt once. If they change their mind they can enable notifications for gjTerm2 Buddy in iOS Settings.")
         case .notDetermined:
             throw OrchestratorError.unsupported(
                 reason: "The phone could not show the permission prompt.")
@@ -2243,7 +2243,7 @@ final class OrchestratorDispatcher {
 
         guard let session = spawned else {
             throw OrchestratorError.unsupported(reason:
-                "iTerm2 could not open a new session. The launch failed before the window was shown.")
+                "gjTerm2 could not open a new session. The launch failed before the window was shown.")
         }
         // Synchronous post-launch sanity. launchBookmark's `ok=true`
         // means the fork/exec succeeded (a shell was started), not that

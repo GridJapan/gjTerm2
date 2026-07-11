@@ -83,11 +83,11 @@ final class CompanionPresenceController: NSObject {
 
         if animated {
             if present, !connectToastShown {
-                CompanionToast.show(message: "iTerm2 Buddy connected",
+                CompanionToast.show(message: "gjTerm2 Buddy connected",
                                     symbolName: SFSymbol.laptopcomputerAndIphone.rawValue,
                                     tint: .systemGreen)
             } else if !present, connectToastShown, paired {
-                CompanionToast.show(message: "iTerm2 Buddy disconnected",
+                CompanionToast.show(message: "gjTerm2 Buddy disconnected",
                                     symbolName: SFSymbol.laptopcomputerAndIphone.rawValue,
                                     tint: .secondaryLabelColor)
             }
@@ -100,7 +100,7 @@ final class CompanionPresenceController: NSObject {
         statusItem = item
         if let button = item.button {
             let image = NSImage(systemSymbolName: SFSymbol.laptopcomputerAndIphone.rawValue,
-                                accessibilityDescription: "iTerm2 Buddy")
+                                accessibilityDescription: "gjTerm2 Buddy")
             image?.isTemplate = true
             button.image = image
             // Dim the glyph when paired but not currently connected.

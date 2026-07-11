@@ -66,7 +66,7 @@ struct MessageToPromptStateMachine {
 
     private func prompt(terminalCommand: TerminalCommand) -> String {
         var lines = [String]()
-        lines.append("iTerm2 is sending you this message automatically because the user enabled sending terminal commands to AI for assistance. If you can provide useful non-obvious insights, respond with those. Do not restate information that is obvious from the output. If there is nothing important to say, just respond with \"Got it.\"")
+        lines.append("gjTerm2 is sending you this message automatically because the user enabled sending terminal commands to AI for assistance. If you can provide useful non-obvious insights, respond with those. Do not restate information that is obvious from the output. If there is nothing important to say, just respond with \"Got it.\"")
         lines.append("I executed the following command line:")
         lines.append(terminalCommand.command)
         if let directory = terminalCommand.directory {
@@ -185,7 +185,7 @@ struct MessageToPromptStateMachine {
             lines.append("Detail: \(xmlEscapeText(payload.detail))")
         }
         if payload.pushed == true {
-            lines.append("Note: iTerm2 already sent a push notification to the user's iPhone for this event. Do not send another.")
+            lines.append("Note: gjTerm2 already sent a push notification to the user's iPhone for this event. Do not send another.")
         } else if payload.pushed == false {
             lines.append("Note: the user asked for a push notification but notifications are unavailable right now, so make sure they see this in chat.")
         } else if CompanionPushRegistry.canNotify {

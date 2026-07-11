@@ -44,8 +44,8 @@ class OnePasswordDataSource: CommandLinePasswordDataSource {
     private static var haveCheckedAccounts = false
 
     init(browser: Bool) {
-        tag = browser ? nil : "iTerm2"
-        tagToExclude = browser ? "iTerm2" : nil
+        tag = browser ? nil : "gjTerm2"
+        tagToExclude = browser ? "gjTerm2" : nil
     }
 
     private func asyncGetToken(_ completion: @escaping (Result<OnePasswordTokenRequester.Auth, Error>) -> ()) {

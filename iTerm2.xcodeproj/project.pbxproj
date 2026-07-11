@@ -432,7 +432,7 @@
 		1D6ED98019AEA20D005A7799 /* QuestionMarkSign@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DC2AF5019521CFF005769D5 /* QuestionMarkSign@2x.png */; };
 		1D6ED98719AEA20D005A7799 /* Maximized.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DC2A1CA1949165D005769D5 /* Maximized.png */; };
 		1D6ED98A19AEA20D005A7799 /* LogoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CEDA5D19988A7300BB57EC /* LogoFrame.png */; };
-		1D6ED99319AEA20D005A7799 /* iTerm2.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A6C7DE5819A459E9001E5C75 /* iTerm2.sdef */; };
+		1D6ED99319AEA20D005A7799 /* gjTerm2.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A6C7DE5819A459E9001E5C75 /* gjTerm2.sdef */; };
 		1D6ED99519AEA20D005A7799 /* BrokenPipeDivider.png in Resources */ = {isa = PBXBuildFile; fileRef = A69B457A1967B03B00F5444D /* BrokenPipeDivider.png */; };
 		1D6ED99619AEA20D005A7799 /* PrefsAdvanced@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67F117F18D82B9500B23C7B /* PrefsAdvanced@2x.png */; };
 		1D6ED99719AEA20D005A7799 /* Warning.png in Resources */ = {isa = PBXBuildFile; fileRef = DD02577109CB93C2008F320C /* Warning.png */; };
@@ -3823,8 +3823,8 @@
 		A6C7C9712E18F27800AA7668 /* iTermBrowserWebViewHandlerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7C9702E18F26E00AA7668 /* iTermBrowserWebViewHandlerProxy.swift */; };
 		A6C7DE52199F3087001E5C75 /* PTYWindow+Scripting.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C7DE51199F3087001E5C75 /* PTYWindow+Scripting.h */; };
 		A6C7DE5519A4591E001E5C75 /* iTermNewWindowCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C7DE5319A4591E001E5C75 /* iTermNewWindowCommand.h */; };
-		A6C7DE5919A459E9001E5C75 /* iTerm2.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A6C7DE5819A459E9001E5C75 /* iTerm2.sdef */; };
-		A6C7DE5A19A459E9001E5C75 /* iTerm2.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A6C7DE5819A459E9001E5C75 /* iTerm2.sdef */; };
+		A6C7DE5919A459E9001E5C75 /* gjTerm2.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A6C7DE5819A459E9001E5C75 /* gjTerm2.sdef */; };
+		A6C7DE5A19A459E9001E5C75 /* gjTerm2.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A6C7DE5819A459E9001E5C75 /* gjTerm2.sdef */; };
 		A6C7DE5D19A469D6001E5C75 /* NSColor+Scripting.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C7DE5B19A469D6001E5C75 /* NSColor+Scripting.h */; };
 		A6C811F92DD1A7870088E628 /* TwoTierTokenQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C811F82DD1A7850088E628 /* TwoTierTokenQueue.swift */; };
 		A6C838AD2CB88BF90062BE68 /* DeprecatedProfileKeyMappings.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6C838AC2CB88BF90062BE68 /* DeprecatedProfileKeyMappings.plist */; };
@@ -8230,7 +8230,7 @@
 		A68769542C0E5DF700F7FFEC /* LLM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLM.swift; sourceTree = "<group>"; };
 		A687B66825AD6FF600E0A658 /* iTermGitClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTermGitClient.h; sourceTree = "<group>"; };
 		A687B66925AD6FF600E0A658 /* iTermGitClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTermGitClient.m; sourceTree = "<group>"; };
-		A6889E84213274E600ABB237 /* iTerm2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTerm2.entitlements; sourceTree = "<group>"; };
+		A6889E84213274E600ABB237 /* gjTerm2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gjTerm2.entitlements; sourceTree = "<group>"; };
 		A688AA58298AFEE7007F4603 /* DoubleTapHotkeyStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapHotkeyStateMachine.swift; sourceTree = "<group>"; };
 		A688AA5B298C389B007F4603 /* ConductorFileTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConductorFileTransfer.swift; sourceTree = "<group>"; };
 		A6891DC82818605500751F40 /* MarkdownPortholeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownPortholeRenderer.swift; sourceTree = "<group>"; };
@@ -8766,7 +8766,7 @@
 		A6C7DE51199F3087001E5C75 /* PTYWindow+Scripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTYWindow+Scripting.h"; sourceTree = "<group>"; };
 		A6C7DE5319A4591E001E5C75 /* iTermNewWindowCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTermNewWindowCommand.h; sourceTree = "<group>"; };
 		A6C7DE5419A4591E001E5C75 /* iTermNewWindowCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTermNewWindowCommand.m; sourceTree = "<group>"; };
-		A6C7DE5819A459E9001E5C75 /* iTerm2.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = iTerm2.sdef; sourceTree = "<group>"; };
+		A6C7DE5819A459E9001E5C75 /* gjTerm2.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gjTerm2.sdef; sourceTree = "<group>"; };
 		A6C7DE5B19A469D6001E5C75 /* NSColor+Scripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Scripting.h"; sourceTree = "<group>"; };
 		A6C7DE5C19A469D6001E5C75 /* NSColor+Scripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Scripting.m"; sourceTree = "<group>"; };
 		A6C811F82DD1A7850088E628 /* TwoTierTokenQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTierTokenQueue.swift; sourceTree = "<group>"; };
@@ -10001,7 +10001,7 @@
 				A63F2A3A23FA5951008DDEA4 /* it2run */,
 				5370676121C9D2390088D0F3 /* SignedArchive */,
 				530AB7EC20AE85DE00D2AA08 /* api */,
-				A6889E84213274E600ABB237 /* iTerm2.entitlements */,
+				A6889E84213274E600ABB237 /* gjTerm2.entitlements */,
 				904AE312A0E0489899D9ECB8 /* MenuTips.xcassets */,
 				A6D22A701BC8C27E004084E0 /* NSManagedObjects */,
 				0464AB0E006CD2EC7F000001 /* Classes */,
@@ -10175,7 +10175,7 @@
 				A6A3CDAA2E36F34300710B09 /* Modern Test Resources */,
 				A629F57123AF2DD900C2F16B /* Resources */,
 				A686C0D21ADA38CA00906FAE /* Golden Images for Tests */,
-				A6C7DE5819A459E9001E5C75 /* iTerm2.sdef */,
+				A6C7DE5819A459E9001E5C75 /* gjTerm2.sdef */,
 				1D03D42719144C3B0049EB8F /* Other Assets */,
 				1D03D42619144C140049EB8F /* Property Lists */,
 				1D093C131217412B0029F9AD /* Images */,
@@ -18063,7 +18063,7 @@
 				530AB7BE20A641E000D2AA08 /* repl_banner.txt in Resources */,
 				A6F1B3B0268FD0F300546767 /* StatusBarIconTriggers@2x.png in Resources */,
 				A67F61E3214395D50093940A /* graphic_zip.png in Resources */,
-				1D6ED99319AEA20D005A7799 /* iTerm2.sdef in Resources */,
+				1D6ED99319AEA20D005A7799 /* gjTerm2.sdef in Resources */,
 				A6F18B552AE2F39C006C08EE /* uniE0D1_lego_block_sideways.pdf in Resources */,
 				1D6ED99519AEA20D005A7799 /* BrokenPipeDivider.png in Resources */,
 				1D6ED99619AEA20D005A7799 /* PrefsAdvanced@2x.png in Resources */,
@@ -18595,7 +18595,7 @@
 				A6F7A71A213CB143004DE961 /* StatusBarIconUser@2x.png in Resources */,
 				A6CBB7FE2E09163A00B2CCCB /* check-iframe-origins.js in Resources */,
 				A6F1B3C32693B82C00546767 /* DebugLogging.png in Resources */,
-				A6C7DE5A19A459E9001E5C75 /* iTerm2.sdef in Resources */,
+				A6C7DE5A19A459E9001E5C75 /* gjTerm2.sdef in Resources */,
 				A67A50B226CCD3E300281693 /* xterm in Resources */,
 				A6F7A714213CB143004DE961 /* StatusBarIconClock@2x.png in Resources */,
 				A6DDD3172FCE958A0031E81C /* BairesDev.png in Resources */,
@@ -19241,7 +19241,7 @@
 				A6B577D72C0A970E003FEB4F /* ai-plugin.sb in Resources */,
 				A6B3A7381AC74E02008E8D4E /* FindCursorCell3.png in Resources */,
 				A61BB46822001E650027F47D /* iTermRecordingIcon.icns in Resources */,
-				A6C7DE5919A459E9001E5C75 /* iTerm2.sdef in Resources */,
+				A6C7DE5919A459E9001E5C75 /* gjTerm2.sdef in Resources */,
 				A6F31A3E295BC61F00C1A51E /* uniE0D0_PowerlineExtraSymbols.pdf in Resources */,
 				A6976AEE2F47EFD3002875A1 /* SerpApi.png in Resources */,
 				1DE922EA1AC370DC00965876 /* BackgroundStripes@2x.png in Resources */,
@@ -22462,7 +22462,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = iTerm2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = gjTerm2.entitlements;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -22524,8 +22524,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.gridjapan.gjterm2;
+				PRODUCT_NAME = gjTerm2;
+				PRODUCT_MODULE_NAME = iTerm2;
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
@@ -23753,7 +23754,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = iTerm2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = gjTerm2.entitlements;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -23811,8 +23812,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.gridjapan.gjterm2;
+				PRODUCT_NAME = gjTerm2;
+				PRODUCT_MODULE_NAME = iTerm2;
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
@@ -24151,7 +24153,7 @@
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/sources/iTerm2SharedARC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTerm2.app/Contents/MacOS/iTerm2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gjTerm2.app/Contents/MacOS/gjTerm2";
 				USER_HEADER_SEARCH_PATHS = "$(CONFIGURATION_TEMP_DIR)/iTerm2SharedARC.build/DerivedSources";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WARNING_CFLAGS = (
@@ -26348,7 +26350,7 @@
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/sources/iTerm2SharedARC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTerm2.app/Contents/MacOS/iTerm2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gjTerm2.app/Contents/MacOS/gjTerm2";
 				USER_HEADER_SEARCH_PATHS = "$(CONFIGURATION_TEMP_DIR)/iTerm2SharedARC.build/DerivedSources";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WARNING_CFLAGS = (
@@ -26417,7 +26419,7 @@
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/sources/iTerm2SharedARC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTerm2.app/Contents/MacOS/iTerm2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gjTerm2.app/Contents/MacOS/gjTerm2";
 				USER_HEADER_SEARCH_PATHS = "$(CONFIGURATION_TEMP_DIR)/iTerm2SharedARC.build/DerivedSources";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WARNING_CFLAGS = (
@@ -26486,7 +26488,7 @@
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/sources/iTerm2SharedARC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iTerm2.app/Contents/MacOS/iTerm2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gjTerm2.app/Contents/MacOS/gjTerm2";
 				USER_HEADER_SEARCH_PATHS = "$(CONFIGURATION_TEMP_DIR)/iTerm2SharedARC.build/DerivedSources";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WARNING_CFLAGS = (
@@ -26506,7 +26508,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = iTerm2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = gjTerm2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -26571,8 +26573,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.gridjapan.gjterm2;
+				PRODUCT_NAME = gjTerm2;
+				PRODUCT_MODULE_NAME = iTerm2;
 				SDKROOT = macosx;
 				SECTORDER_FLAGS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -26605,7 +26608,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CODE_SIGN_ENTITLEMENTS = iTerm2.entitlements;
+				CODE_SIGN_ENTITLEMENTS = gjTerm2.entitlements;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -26663,8 +26666,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.iterm2;
-				PRODUCT_NAME = iTerm2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.gridjapan.gjterm2;
+				PRODUCT_NAME = gjTerm2;
+				PRODUCT_MODULE_NAME = iTerm2;
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

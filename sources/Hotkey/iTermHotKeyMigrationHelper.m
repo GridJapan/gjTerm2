@@ -104,7 +104,7 @@
 
 - (void)migrateDynamicProfileHotKeySettings:(Profile *)profile {
     RLog(@"Have a dynamic profile to migrate");
-    NSString *title = [NSString stringWithFormat:@"Your hotkey window‘s profile is a dynamic profile named “%@.” It needs to be updated for this version of iTerm2 because hotkey settings are now stored in the profile.", profile[KEY_NAME]];
+    NSString *title = [NSString stringWithFormat:@"Your hotkey window‘s profile is a dynamic profile named “%@.” It needs to be updated for this version of gjTerm2 because hotkey settings are now stored in the profile.", profile[KEY_NAME]];
 
     NSArray *actions;
     NSData *replacementFile = [self modifiedDynamicProfileFileWithNewHotKeySettingsFromProfile:profile];

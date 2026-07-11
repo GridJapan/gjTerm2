@@ -785,7 +785,7 @@ static NSString *iTermMultiServerStringForMessageFromClient(iTermMultiServerClie
         [rateLimit performRateLimitedBlock:^{
             DLog(@"Called");
             NSAlert *alert = [[NSAlert alloc] init];
-            alert.messageText = @"Problem Starting iTerm2 Daemon";
+            alert.messageText = @"Problem Starting gjTerm2 Daemon";
             alert.informativeText = message;
             [alert runModal];
         }];
@@ -832,7 +832,7 @@ static NSString *iTermMultiServerStringForMessageFromClient(iTermMultiServerClie
     NSString *desiredPath = [self serverPath];
     if (!desiredPath) {
         [self showError:nil
-                message:[NSString stringWithFormat:@"Neither ~/Library/Application Support/iTerm2 nor ~/.iterm2 are writable directories. This prevents the session restoration server from running. Please correct the problem and restart iTerm2."]
+                message:[NSString stringWithFormat:@"Neither ~/Library/Application Support/gjTerm2 nor ~/.iterm2 are writable directories. This prevents the session restoration server from running. Please correct the problem and restart gjTerm2."]
                  badURL:nil];
         return nil;
     }
@@ -850,7 +850,7 @@ static NSString *iTermMultiServerStringForMessageFromClient(iTermMultiServerClie
             dispatch_sync(dispatch_get_main_queue(), ^{
                 NSAlert *alert = [[NSAlert alloc] init];
                 alert.messageText = @"Required File Missing";
-                alert.informativeText = @"The iTermServer executable is missing from the application bundle. This indicates iTerm2 is corrupted or incomplete. Please reinstall iTerm2 from the official website.";
+                alert.informativeText = @"The iTermServer executable is missing from the application bundle. This indicates gjTerm2 is corrupted or incomplete. Please reinstall gjTerm2 from the official website.";
                 alert.alertStyle = NSAlertStyleCritical;
                 [alert addButtonWithTitle:@"Quit"];
                 [alert runModal];

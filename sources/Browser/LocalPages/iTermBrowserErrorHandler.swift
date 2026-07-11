@@ -95,13 +95,13 @@ class iTermBrowserErrorHandler: NSObject, iTermBrowserPageHandler {
                 return ("No Internet Connection", "Your computer appears to be offline. Check your internet connection and try again.", nil)
 
             case NSURLErrorCannotFindHost:
-                return ("Server Not Found", "iTerm2 can’t find the server. Check that the web address is correct and try again.", nil)
+                return ("Server Not Found", "gjTerm2 can’t find the server. Check that the web address is correct and try again.", nil)
 
             case NSURLErrorTimedOut:
                 return ("The Connection Timed Out", "The server didn’t respond in time. The site may be temporarily unavailable or overloaded.", nil)
 
             case NSURLErrorCannotConnectToHost:
-                return ("Can’t Connect to Server", "iTerm2 can’t establish a secure connection to the server. The server may be down or unreachable.", nil)
+                return ("Can’t Connect to Server", "gjTerm2 can’t establish a secure connection to the server. The server may be down or unreachable.", nil)
 
             case NSURLErrorNetworkConnectionLost:
                 return ("Network Connection Lost", "The network connection was lost. Check your internet connection and try again.", nil)
@@ -110,7 +110,7 @@ class iTermBrowserErrorHandler: NSObject, iTermBrowserPageHandler {
                 return ("Server Not Found", "The server’s DNS address could not be found. Check that the web address is correct.", nil)
 
             case NSURLErrorHTTPTooManyRedirects:
-                return ("Too Many Redirects", "iTerm2 can’t open the page because the server redirected too many times.", nil)
+                return ("Too Many Redirects", "gjTerm2 can’t open the page because the server redirected too many times.", nil)
 
             case NSURLErrorResourceUnavailable:
                 return ("Page Unavailable", "The requested page is currently unavailable. Try again later.", nil)
@@ -119,7 +119,7 @@ class iTermBrowserErrorHandler: NSObject, iTermBrowserPageHandler {
                 return ("No Internet Connection", "Your computer is not connected to the internet. Check your connection and try again.", nil)
 
             case NSURLErrorServerCertificateUntrusted, NSURLErrorSecureConnectionFailed:
-                return ("Secure Connection Failed", "iTerm2 can’t verify the identity of the website. The connection may not be secure.", sslErrorDetails(from: error))
+                return ("Secure Connection Failed", "gjTerm2 can’t verify the identity of the website. The connection may not be secure.", sslErrorDetails(from: error))
 
             case NSURLErrorFileDoesNotExist:
                 return ("File Not Found", "The requested file does not exist.", nil)

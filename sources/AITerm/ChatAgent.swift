@@ -512,7 +512,7 @@ class ChatAgent {
 
     private static let orchestrationDisplayPolicy = """
     Terminal output display policy:
-    - iTerm2 displays raw terminal command output to the user as its own code block.
+    - gjTerm2 displays raw terminal command output to the user as its own code block.
     - Do not repeat raw command output in prose, do not convert it into Markdown tables, and do not reformat listings such as ls, ps, df, netstat, or grep output.
     - After running a command, summarize only non-obvious findings or ask what to do next.
     - Do not show session_guid values to the user in normal prose. If you need to refer to a session, use a short human-readable name.

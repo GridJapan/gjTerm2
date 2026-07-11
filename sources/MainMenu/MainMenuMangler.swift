@@ -37,16 +37,16 @@ class MainMenuMangler: NSObject {
         "Capture Metal Frame": "camera",
         "Preferences...": "gear",
         // "Services" menu item has no identifier in XIB
-        "Hide iTerm2": "eye.slash",
+        "Hide gjTerm2": "eye.slash",
         "Hide Others": "eye.slash.fill",
         "Show All": "eye",
         "Secure Keyboard Entry": "lock.badge.checkmark",
-        "Make iTerm2 Default Term": "star.fill",
+        "Make gjTerm2 Default Term": "star.fill",
         "Make Terminal Default Term": "star",
         "Install Shell Integration": "square.and.arrow.down.fill",
         "Remove Recent Profiles from Dock Menu": "person.fill.xmark",
-        "About iTerm2": "info.circle.fill",
-        "Quit iTerm2": "power",
+        "About gjTerm2": "info.circle.fill",
+        "Quit gjTerm2": "power",
 
         // Shell menu
         "New Window": "plus",
@@ -328,7 +328,7 @@ class MainMenuMangler: NSObject {
         "GPU Renderer Availability": "cpu",
 
         // Help menu
-        "iTerm2 Help": "questionmark.circle",
+        "gjTerm2 Help": "questionmark.circle",
         "Copy Mode Shortcuts": "questionmark.circle",
         "Open Source Licenses": "info.circle"]
 

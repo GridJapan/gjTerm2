@@ -53,15 +53,15 @@ class ClaudeCodeOnboarding: NSObject {
         var description: String {
             switch self {
             case .enablePythonAPI:
-                return "The Claude Code integration relies on iTerm2\u{2019}s Python API to find sessions running Claude and track their status.\n\nThe Python API is currently disabled. Setup can\u{2019}t continue until it is enabled. Click Enable to turn it on."
+                return "The Claude Code integration relies on gjTerm2\u{2019}s Python API to find sessions running Claude and track their status.\n\nThe Python API is currently disabled. Setup can\u{2019}t continue until it is enabled. Click Enable to turn it on."
             case .installHook:
-                return "Install a Claude Code hook that lets iTerm2 detect Claude\u{2019}s state (working, waiting, idle) and display it in the Session Status tool.\n\nThis adds a hook to your Claude Code settings that runs automatically as Claude works."
+                return "Install a Claude Code hook that lets gjTerm2 detect Claude\u{2019}s state (working, waiting, idle) and display it in the Session Status tool.\n\nThis adds a hook to your Claude Code settings that runs automatically as Claude works."
             case .showToolbelt:
                 return "Show the toolbelt and enable the Session Status tool. The toolbelt appears on the right side of your terminal window.\n\nYou can toggle the toolbelt from View > Toolbelt > Show Toolbelt, or with the shortcut \u{2318}\u{21E7}B."
             case .installWorkgroup:
                 return "Install the Claude Code workgroup, which groups your main Claude session with two peer sessions: a diff viewer and a code-review session. You can switch between them with one click.\n\nYou can customize this layout later in Settings > Shortcuts > Workgroups."
             case .installTriggers:
-                return "Pick the terminal profiles where you run claude. iTerm2 will add triggers so the Claude Code workgroup is entered automatically when claude starts and exited when it stops.\n\nWithout this, you can still enter the workgroup manually via Shell > Workgroups > Claude Code."
+                return "Pick the terminal profiles where you run claude. gjTerm2 will add triggers so the Claude Code workgroup is entered automatically when claude starts and exited when it stops.\n\nWithout this, you can still enter the workgroup manually via Shell > Workgroups > Claude Code."
             }
         }
     }
@@ -851,7 +851,7 @@ class ClaudeCodeOnboarding: NSObject {
 
         let lead = NSTextField(wrappingLabelWithString:
             "Don’t panic! All of this can be undone later via "
-            + "iTerm2 > Uninstall Claude Code Integration.")
+            + "gjTerm2 > Uninstall Claude Code Integration.")
         lead.font = NSFont.systemFont(ofSize: 13)
         lead.textColor = .labelColor
         lead.isSelectable = false
@@ -880,10 +880,10 @@ class ClaudeCodeOnboarding: NSObject {
         introDisclosureLabel = disclosureLabel
 
         let details = NSTextField(wrappingLabelWithString:
-            "\u{2022} iTerm2\u{2019}s Python API is enabled\n"
+            "\u{2022} gjTerm2\u{2019}s Python API is enabled\n"
             + "\u{2022} A cc-status hook is added to ~/.claude/settings.json\n"
             + "\u{2022} The toolbelt is shown\n"
-            + "\u{2022} A Claude Code workgroup is added to iTerm2\u{2019}s settings\n"
+            + "\u{2022} A Claude Code workgroup is added to gjTerm2\u{2019}s settings\n"
             + "\u{2022} Enter/Exit Workgroup triggers are added to the profiles you pick")
         details.font = NSFont.systemFont(ofSize: 13)
         details.textColor = .secondaryLabelColor
@@ -1773,9 +1773,9 @@ class ClaudeCodeOnboarding: NSObject {
         let warning = iTermWarning()
         warning.heading = "Dynamic Profiles Selected"
         warning.title = "These profiles are dynamic and not marked "
-            + "\u{201C}rewritable,\u{201D} so iTerm2 normally regenerates them "
+            + "\u{201C}rewritable,\u{201D} so gjTerm2 normally regenerates them "
             + "from disk and any change here would be lost:\n\n\(listed)\n\n"
-            + "iTerm2 can write the triggers back to dynamic profiles when "
+            + "gjTerm2 can write the triggers back to dynamic profiles when "
             + "they\u{2019}re marked rewritable. Rewriting can change the "
             + "order of values in the underlying file."
         warning.warningType = .kiTermWarningTypePersistent

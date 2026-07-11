@@ -320,7 +320,7 @@ static NSString *const kDeleteKeyString = @"0x7f-0x0";
 }
 
 - (IBAction)optionAsMetaHelp:(id)sender {
-    [[NSView castFrom:sender] it_showWarningWithMarkdown:@"In most key reporting modes, when reporting special keys like arrows, the ⌥ key may act as either Meta or Alt. Prior to version 3.5.6, iTerm2 used Meta. The default changed to Alt because some programs like Emacs expect it."];
+    [[NSView castFrom:sender] it_showWarningWithMarkdown:@"In most key reporting modes, when reporting special keys like arrows, the ⌥ key may act as either Meta or Alt. Prior to version 3.5.6, gjTerm2 used Meta. The default changed to Alt because some programs like Emacs expect it."];
 }
 
 - (void)updateExtendedModifierLabelColors {

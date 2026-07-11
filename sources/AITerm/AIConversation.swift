@@ -274,12 +274,12 @@ struct AIConversation {
                         regCompletion(registration)
                         completion(nil)
                     } else {
-                        completion(AIError("You must provide a valid API key to use AI features in iTerm2."))
+                        completion(AIError("You must provide a valid API key to use AI features in gjTerm2."))
                     }
                 }
             } else {
                 RLog("No registration provider found")
-                completion(AIError("You must provide a valid API key to use AI features in iTerm2"))
+                completion(AIError("You must provide a valid API key to use AI features in gjTerm2"))
             }
         }
     }

@@ -218,7 +218,7 @@ private extension MessagePrepPipeline {
                 return
             }
             delegate?.createVectorStore(
-                name: "iTerm2.\(chatID)") { [weak self] result in
+                name: "gjTerm2.\(chatID)") { [weak self] result in
                     try? result.handle { id in
                         try self?.delegate?.publish(message: .init(
                             chatID: chatID,

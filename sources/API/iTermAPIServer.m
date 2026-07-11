@@ -205,7 +205,7 @@ NSString *const iTermAPIServerConnectionClosed = @"iTermAPIServerConnectionClose
         return NO;
     }
     if (flock(fd, LOCK_EX | LOCK_NB) != 0) {
-        XLog(@"Failed to acquire API socket lock at %@ (%s). Another iTerm2 "
+        XLog(@"Failed to acquire API socket lock at %@ (%s). Another gjTerm2 "
              @"instance appears to be using this application-support directory; "
              @"refusing to start the API server to avoid clobbering its socket.",
              lockPath, strerror(errno));
@@ -931,7 +931,7 @@ NSString *const iTermAPIServerConnectionClosed = @"iTermAPIServerConnectionClose
 
 - (void)handleMalformedRequest:(ITMClientOriginatedMessage *)request connection:(iTermWebSocketConnection *)webSocketConnection {
     ITMServerOriginatedMessage *response = [self newResponseForRequest:request];
-    response.error = @"Invalid request. Upgrade iTerm2 to a newer version.";
+    response.error = @"Invalid request. Upgrade gjTerm2 to a newer version.";
     [self finishHandlingRequestWithResponse:response onConnection:webSocketConnection];
 }
 

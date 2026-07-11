@@ -669,7 +669,7 @@ static NSString *const kArrangement = @"Arrangement";
         [self moveToPreferredScreen];
     }
     if (self.hotkeyWindowType != iTermHotkeyWindowTypeFloatingPanel) {
-        DLog(@"Activate iTerm2 prior to animating hotkey window in");
+        DLog(@"Activate gjTerm2 prior to animating hotkey window in");
         _activationPending = YES;
         [self.windowController.window makeKeyAndOrderFront:nil];
         [[iTermApplication sharedApplication] activateAppWithCompletion:^{

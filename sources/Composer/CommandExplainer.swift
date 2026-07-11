@@ -16,7 +16,7 @@ class CommandExplainer: NSObject {
 
     func newURL(for command: String, window: NSWindow?) -> URL {
         var components = URLComponents()
-        components.scheme = "iterm2"
+        components.scheme = "gjterm2"
         components.path = "explain"
         components.queryItems = [URLQueryItem(name: "command", value: command),
                                  URLQueryItem(name: "token", value: makeToken(window))]
@@ -28,7 +28,7 @@ class CommandExplainer: NSObject {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return
         }
-        guard components.scheme == "iterm2" else {
+        guard components.scheme == "gjterm2" else {
             return
         }
         guard components.host == nil else {

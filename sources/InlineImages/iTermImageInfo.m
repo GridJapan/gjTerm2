@@ -412,7 +412,7 @@ static NSSize iTermImageInfoGetSizeForRegionPreservingAspectRatio(const NSSize r
             // The filename has an extension. Preserve its name in the tempfile's name,
             // and especially importantly, preserve its extension.
             NSString *suffix = [@"." stringByAppendingString:_filename.lastPathComponent];
-            name = [[NSWorkspace sharedWorkspace] temporaryFileNameWithPrefix:@"iTerm2."
+            name = [[NSWorkspace sharedWorkspace] temporaryFileNameWithPrefix:@"gjTerm2."
                                                                        suffix:suffix];
         } else {
             // Empty extension case. Try to guess the extension.
@@ -420,7 +420,7 @@ static NSSize iTermImageInfoGetSizeForRegionPreservingAspectRatio(const NSSize r
             if (extension) {
                 extension = [@"." stringByAppendingString:extension];
             }
-            name = [[NSWorkspace sharedWorkspace] temporaryFileNameWithPrefix:@"iTerm2."
+            name = [[NSWorkspace sharedWorkspace] temporaryFileNameWithPrefix:@"gjTerm2."
                                                                        suffix:extension];
         }
         [self.data writeToFile:name atomically:NO];

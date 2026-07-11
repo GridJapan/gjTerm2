@@ -19,8 +19,8 @@ class AITermControllerObjC: NSObject, AITermControllerDelegate, iTermObject {
     private let pleaseWait: PleaseWaitWindow
     private static let apiKeyQueue = DispatchQueue(label: "com.iterm2.aiterm-set-key")
     private static var cachedKeys = [UInt: CachedKey]()
-    private static let keychainService = "iTerm2 API Keys"
-    private static let legacyKeychainAccount = "OpenAI API Key for iTerm2"
+    private static let keychainService = "gjTerm2 API Keys"
+    private static let legacyKeychainAccount = "OpenAI API Key for gjTerm2"
 
     @objc static var haveCachedAPIKey: Bool {
         return apiKeyQueue.sync {
@@ -219,17 +219,17 @@ class AITermControllerObjC: NSObject, AITermControllerDelegate, iTermObject {
         case .openAI:
             return legacyKeychainAccount
         case .anthropic:
-            return "Anthropic API Key for iTerm2"
+            return "Anthropic API Key for gjTerm2"
         case .gemini:
-            return "Gemini API Key for iTerm2"
+            return "Gemini API Key for gjTerm2"
         case .deepSeek:
-            return "DeepSeek API Key for iTerm2"
+            return "DeepSeek API Key for gjTerm2"
         case .llama:
-            return "Llama API Key for iTerm2"
+            return "Llama API Key for gjTerm2"
         case .apple:
-            return "Apple Intelligence API Key for iTerm2"
+            return "Apple Intelligence API Key for gjTerm2"
         @unknown default:
-            return "AI API Key for iTerm2"
+            return "AI API Key for gjTerm2"
         }
     }
 

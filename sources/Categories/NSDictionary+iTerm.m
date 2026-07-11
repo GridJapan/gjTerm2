@@ -277,7 +277,7 @@ static const NSEventModifierFlags iTermHotkeyModifierMask = (NSEventModifierFlag
 }
 
 - (NSData *)propertyListData {
-    NSString *filename = [[NSWorkspace sharedWorkspace] temporaryFileNameWithPrefix:@"DictionaryPropertyList" suffix:@"iTerm2"];
+    NSString *filename = [[NSWorkspace sharedWorkspace] temporaryFileNameWithPrefix:@"DictionaryPropertyList" suffix:@"gjTerm2"];
     [self writeToFile:filename atomically:NO];
     NSData *data = [NSData dataWithContentsOfFile:filename];
     [[NSFileManager defaultManager] removeItemAtPath:filename error:nil];

@@ -219,11 +219,11 @@
 }
 
 + (instancetype)alwaysConfirmQuitPreferenceEnabled {
-    return [[[iTermPromptOnCloseMessageReason alloc] initWithMessage:@"“Settings > General > Closing > Confirm Quit iTerm2” is enabled and there is at least one terminal window." priority:100] autorelease];
+    return [[[iTermPromptOnCloseMessageReason alloc] initWithMessage:@"“Settings > General > Closing > Confirm Quit gjTerm2” is enabled and there is at least one terminal window." priority:100] autorelease];
 }
 
 + (instancetype)alwaysConfirmQuitPreferenceEvenIfThereAreNoWindowsEnabled {
-    return [[[iTermPromptOnCloseMessageReason alloc] initWithMessage:@"“Settings > General > Closing > Confirm Quit iTerm2” and “Even if there are no windows” is enabled." priority:100] autorelease];
+    return [[[iTermPromptOnCloseMessageReason alloc] initWithMessage:@"“Settings > General > Closing > Confirm Quit gjTerm2” and “Even if there are no windows” is enabled." priority:100] autorelease];
 }
 
 + (instancetype)closingMultipleSessionsPreferenceEnabled {

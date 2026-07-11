@@ -545,7 +545,7 @@ NSString *const kStatusTextComboBoxIdentifier = @"kStatusTextComboBoxIdentifier"
         return [self jsonForTriggerAtIndex:indexNumber.integerValue];
     }];
     NSURLComponents *components = [[NSURLComponents alloc] init];
-    components.scheme = @"iterm2";
+    components.scheme = @"gjterm2";
     components.path = @"triggers";
     components.queryItems = [parts mapWithBlock:^id _Nullable(NSString *part) {
         return [[NSURLQueryItem alloc] initWithName:part value:nil];

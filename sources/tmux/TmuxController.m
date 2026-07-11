@@ -1828,7 +1828,7 @@ static NSDictionary *iTermTmuxControllerDefaultFontOverridesFromProfile(Profile 
 {
     NSString *message = [NSString stringWithFormat:
                             @"The \"%@\" option is turned on in tmux. "
-                             "It is not compatible with the iTerm2-tmux integration. "
+                             "It is not compatible with the gjTerm2-tmux integration. "
                              "Please disable it and try again.",
                              option];
     [gateway_ abortWithErrorMessage:message
@@ -3068,7 +3068,7 @@ static NSDictionary *iTermTmuxControllerDefaultFontOverridesFromProfile(Profile 
     }
     if (haveRed) {
         const iTermWarningSelection selection =
-        [iTermWarning showWarningWithTitle:@"While attaching to tmux, some tabs were found whose color is pure red. This may be due to a bug in early versions of iTerm2 3.6.x. Would you like to reset those tabs’ colors?"
+        [iTermWarning showWarningWithTitle:@"While attaching to tmux, some tabs were found whose color is pure red. This may be due to a bug in early versions of gjTerm2 3.6.x. Would you like to reset those tabs’ colors?"
                                    actions:@[ @"Reset", @"Keep Red" ]
                                  accessory:nil
                                 identifier:@"NoSyncResetRedTmuxTabs"

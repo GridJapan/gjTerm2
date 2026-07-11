@@ -96,9 +96,9 @@ Gw
                                     <size key="maxSize" width="440" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment>
-                                            <string key="content">iTerm2 integrates with the major LLM providers for various AI features. &lt;a href="$3"&gt;Learn more here&lt;/a&gt;.
+                                            <string key="content">gjTerm2 integrates with the major LLM providers for various AI features. &lt;a href="$3"&gt;Learn more here&lt;/a&gt;.
 
-iTerm2 is currently configured to use $4. You can change your AI provider in Settings &gt; General &gt; AI.
+gjTerm2 is currently configured to use $4. You can change your AI provider in Settings &gt; General &gt; AI.
 
 Before you can use this feature, you’ll need an API key. If you don’t already have one, you’ll need to &lt;a href="$1"&gt;create an account&lt;/a&gt; and &lt;a href="$2"&gt;generate an API&lt;/a&gt;. Then enter it below:</string>
                                             <attributes>

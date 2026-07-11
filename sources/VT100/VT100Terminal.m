@@ -1353,7 +1353,7 @@ static const int kMaxScreenRows = 4096;
                     [self sendDarkModeDSR];
                 }
                 break;
-            case 1337:  // iTerm2 extension
+            case 1337:  // gjTerm2 extension
                 [_delegate terminalSendReport:[self.output reportiTerm2Version]];
                 break;
 

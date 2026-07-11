@@ -142,7 +142,7 @@ NSString * const DirectoryLocationDomain = @"DirectoryLocationDomain";
     if (result == nil) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            [iTermWarning showWarningWithTitle:[NSString stringWithFormat:@"There was a problem finding or creating your application support directory. iTerm2 won't work very well until this problem is fixed.\n\nIt should be at ~/Library/Application Support/iTerm2.\n\nThe error was:\n%@", error.localizedDescription]
+            [iTermWarning showWarningWithTitle:[NSString stringWithFormat:@"There was a problem finding or creating your application support directory. gjTerm2 won't work very well until this problem is fixed.\n\nIt should be at ~/Library/Application Support/gjTerm2.\n\nThe error was:\n%@", error.localizedDescription]
                                        actions:@[ @"OK" ]
                                      accessory:nil
                                     identifier:@"NoSyncAppSupportFail"

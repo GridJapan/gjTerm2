@@ -409,7 +409,7 @@ static NSString *const kKeyCode0MitigationSuffixGlobal = @"Global";
     }
     iTermHotkeyPreferencesModel *model = [[iTermHotkeyPreferencesModel alloc] init];
     _hotkeyPanel = [[iTermHotkeyPreferencesWindowController alloc] init];
-    [_hotkeyPanel setExplanation:@"This panel helps you configure a new profile that will be bound to a keystroke you assign. Pressing the hotkey (even when iTerm2 is not active) will toggle a special window."];
+    [_hotkeyPanel setExplanation:@"This panel helps you configure a new profile that will be bound to a keystroke you assign. Pressing the hotkey (even when gjTerm2 is not active) will toggle a special window."];
     _hotkeyPanel.descriptorsInUseByOtherProfiles = [[iTermHotKeyController sharedInstance] descriptorsForProfileHotKeysExcept:nil];
     _hotkeyPanel.model = model;
 

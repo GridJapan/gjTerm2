@@ -230,7 +230,7 @@ class iTermScreenshotPanel: NSPanel {
                    defer: true)
         self.isFloatingPanel = true
         self.becomesKeyOnlyIfNeeded = true
-        self.hidesOnDeactivate = true  // Hide when iTerm2 is not active
+        self.hidesOnDeactivate = true  // Hide when gjTerm2 is not active
         self.title = "Make Screenshot"
         self.isReleasedWhenClosed = false
         self.delegate = self

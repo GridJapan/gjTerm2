@@ -64,7 +64,7 @@
 + (void)switchToSpace:(int)spaceNum {
     if (![[iTermPermissionsHelper accessibility] request]) {
         [self complainThatCantSwitchToSpace:spaceNum
-                                        fix:@"You must grant iTerm2 accessibility permission in System Settings > Security & Privacy."];
+                                        fix:@"You must grant gjTerm2 accessibility permission in System Settings > Security & Privacy."];
         return;
     }
     CGEventRef keyDownEvent = [self newEventToSwitchToSpace:spaceNum down:YES];

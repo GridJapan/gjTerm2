@@ -15,10 +15,10 @@
         <customObject id="2Vu-IH-16w" customClass="ColorsMenuItemView"/>
         <menu title="MainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
-                <menuItem title="iTerm2" id="56">
-                    <menu key="submenu" title="iTerm2" systemMenu="apple" id="57">
+                <menuItem title="gjTerm2" id="56">
+                    <menu key="submenu" title="gjTerm2" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About iTerm2" identifier="About iTerm2" id="233">
+                            <menuItem title="About gjTerm2" identifier="About gjTerm2" id="233">
                                 <connections>
                                     <action selector="showAbout:" target="201" id="509"/>
                                 </connections>
@@ -84,7 +84,7 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide iTerm2" keyEquivalent="h" identifier="Hide iTerm2" id="134">
+                            <menuItem title="Hide gjTerm2" keyEquivalent="h" identifier="Hide gjTerm2" id="134">
                                 <connections>
                                     <action selector="hide:" target="-2" id="152"/>
                                 </connections>
@@ -110,7 +110,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="1176"/>
-                            <menuItem title="Make iTerm2 Default Term" keyEquivalent="\" identifier="Make iTerm2 Default Term" id="1470">
+                            <menuItem title="Make gjTerm2 Default Term" keyEquivalent="\" identifier="Make gjTerm2 Default Term" id="1470">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" control="YES" command="YES"/>
                                 <connections>
                                     <action selector="makeDefaultTerminal:" target="201" id="1472"/>
@@ -151,7 +151,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="1469"/>
-                            <menuItem title="Quit iTerm2" keyEquivalent="q" identifier="Quit iTerm2" id="136">
+                            <menuItem title="Quit gjTerm2" keyEquivalent="q" identifier="Quit gjTerm2" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="532"/>
                                 </connections>
@@ -2037,7 +2037,7 @@ CQ
                 <menuItem title="Help" id="103">
                     <menu key="submenu" title="Help" id="106">
                         <items>
-                            <menuItem title="iTerm2 Help" keyEquivalent="?" identifier="iTerm2 Help" id="111">
+                            <menuItem title="gjTerm2 Help" keyEquivalent="?" identifier="gjTerm2 Help" id="111">
                                 <connections>
                                     <action selector="showHelp:" target="201" id="hFO-6H-VeJ"/>
                                 </connections>

@@ -28,7 +28,7 @@ final class CompanionWizardWindowController: NSWindowController, NSWindowDelegat
     enum Screen {
         case fullSetup      // 1.1: install both plugins + grant both consents
         case companionOnly  // 1.2: install the companion plugin + grant its consent
-        case phoneApp       // 2: install iTerm2 Buddy on the phone
+        case phoneApp       // 2: install gjTerm2 Buddy on the phone
         case showCode       // 3: authenticate, then show the pairing QR
         case sasEntry       // 4: confirm the 6-digit code the phone shows
         case paired         // 5: paired, with live connection status
@@ -198,8 +198,8 @@ final class CompanionWizardWindowController: NSWindowController, NSWindowDelegat
         addTitle(full ? "Set Up Your Companion Device" : "Enable Companion Pairing", to: view)
 
         let explanation = full
-            ? "This installs the AI and Companion plugins and turns on both features. Afterward, iTerm2 can send data off this Mac, but only with your explicit consent."
-            : "This installs the Companion plugin and turns on companion device pairing. Afterward, iTerm2 can send data off this Mac, but only with your explicit consent."
+            ? "This installs the AI and Companion plugins and turns on both features. Afterward, gjTerm2 can send data off this Mac, but only with your explicit consent."
+            : "This installs the Companion plugin and turns on companion device pairing. Afterward, gjTerm2 can send data off this Mac, but only with your explicit consent."
         addBodyLabel(explanation, to: view, y: Self.contentHeight - 160, height: 80)
 
         // Learn-more link sits right under the introductory paragraph, above the
@@ -414,22 +414,22 @@ final class CompanionWizardWindowController: NSWindowController, NSWindowDelegat
     // MARK: Screen 2 - phone app
 
     private func buildPhoneAppScreen(in view: NSView) {
-        addTitle("Install iTerm2 Buddy on Your iPhone", to: view)
-        addBodyLabel("Pairing connects this Mac to the iTerm2 Buddy app on your iPhone. Install it now, then come back and continue.",
+        addTitle("Install gjTerm2 Buddy on Your iPhone", to: view)
+        addBodyLabel("Pairing connects this Mac to the gjTerm2 Buddy app on your iPhone. Install it now, then come back and continue.",
                      to: view, y: Self.contentHeight - 170, height: 80)
 
         if Bundle.it_isEarlyAdopter() || Bundle.it_isNightlyBuild() {
-            addBodyLabel("This is a beta build, so iTerm2 Buddy is distributed through TestFlight. Install TestFlight, then join the beta.",
+            addBodyLabel("This is a beta build, so gjTerm2 Buddy is distributed through TestFlight. Install TestFlight, then join the beta.",
                          to: view, y: Self.contentHeight - 260, height: 60)
             let testFlight = makeButton("Install TestFlight", action: #selector(openTestFlightApp))
             place(testFlight, centeredAtY: Self.contentHeight - 300, minWidth: 220)
             view.addSubview(testFlight)
 
-            let join = makeButton("Join the iTerm2 Buddy Beta", action: #selector(openJoinBeta))
+            let join = makeButton("Join the gjTerm2 Buddy Beta", action: #selector(openJoinBeta))
             place(join, centeredAtY: Self.contentHeight - 342, minWidth: 220)
             view.addSubview(join)
         } else {
-            let appStore = makeButton("Get iTerm2 Buddy", action: #selector(openReleaseApp))
+            let appStore = makeButton("Get gjTerm2 Buddy", action: #selector(openReleaseApp))
             place(appStore, centeredAtY: Self.contentHeight - 280, minWidth: 220)
             view.addSubview(appStore)
         }
@@ -447,7 +447,7 @@ final class CompanionWizardWindowController: NSWindowController, NSWindowDelegat
 
     private func buildShowCodeScreen(in view: NSView) {
         addTitle("Show the Pairing Code", to: view)
-        addBodyLabel("On your iPhone, open iTerm2 Buddy and tap Scan. Then reveal the pairing code below and point the camera at it.",
+        addBodyLabel("On your iPhone, open gjTerm2 Buddy and tap Scan. Then reveal the pairing code below and point the camera at it.",
                      to: view, y: Self.contentHeight - 170, height: 80)
 
         let qr = NSImageView(frame: NSRect(x: (Self.contentWidth - 240) / 2, y: 190, width: 240, height: 240))
@@ -617,7 +617,7 @@ final class CompanionWizardWindowController: NSWindowController, NSWindowDelegat
             checkmarkImageView?.contentTintColor = .tertiaryLabelColor
             setStatus("", color: .secondaryLabelColor)
         } else {
-            pairedInstructionsLabel?.stringValue = "Your companion device is paired but iTerm2 isn’t listening for it yet. Reconnecting…"
+            pairedInstructionsLabel?.stringValue = "Your companion device is paired but gjTerm2 isn’t listening for it yet. Reconnecting…"
             checkmarkImageView?.contentTintColor = .systemYellow
             setStatus("", color: .systemYellow)
         }

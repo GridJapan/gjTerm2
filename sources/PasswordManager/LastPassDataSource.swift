@@ -123,7 +123,7 @@ class LastPassDataSource: CommandLinePasswordDataSource {
 
     private var terminalGroups: Set<String> {
         if iTermAdvancedSettingsModel.lastpassGroups().isEmpty {
-            let iterm = "iTerm2"
+            let iterm = "gjTerm2"
             return Set([iterm])
         } else {
             let illegalCharacters = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: " ")).inverted
@@ -238,7 +238,7 @@ class LastPassDataSource: CommandLinePasswordDataSource {
     }
 
     private var addAccountRecipe: AnyRecipe<AddRequest, AccountIdentifier> {
-        let groupPrefix = (browser ? "" : "iTerm2/")
+        let groupPrefix = (browser ? "" : "gjTerm2/")
         let addRecipe = LastPassDynamicCommandRecipe<AddRequest, Void> {
             let args = ["add", groupPrefix + $0.accountName, "--non-interactive"]
             let input = "Username: \($0.userName)\nPassword: \($0.password)"
@@ -552,7 +552,7 @@ class LastPassUtils {
     private static func showCannotFindCLIMessage() -> Bool {
         let alert = NSAlert()
         alert.messageText = "Can’t Find LastPass CLI"
-        alert.informativeText = "In order to use the LastPass integration, iTerm2 needs to know where to find the CLI app named “lpass”. Select Locate to provide its location."
+        alert.informativeText = "In order to use the LastPass integration, gjTerm2 needs to know where to find the CLI app named “lpass”. Select Locate to provide its location."
         alert.addButton(withTitle: "Locate")
         alert.addButton(withTitle: "Cancel")
         alert.addButton(withTitle: "Help")

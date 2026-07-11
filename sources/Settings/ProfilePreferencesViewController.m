@@ -160,11 +160,11 @@ NSString *const kProfileSessionHotkeyDidChange = @"kProfileSessionHotkeyDidChang
     NSString *team = [iTermAppSignatureValidator currentAppTeamID];
     NSString *message;
     if (!team) {
-        message = @"A required user interface component is missing or corrupted and iTerm2\u2019s code signature could not be verified. You should download a fresh copy of the app and reinstall it.";
+        message = @"A required user interface component is missing or corrupted and gjTerm2\u2019s code signature could not be verified. You should download a fresh copy of the app and reinstall it.";
     } else if (![team isEqualToString:@"H7V7XYVQ7D"]) {
-        message = @"A required user interface component is missing or corrupted and iTerm2\u2019s code signature did not match that of the official distribution. You should download a fresh copy of the app and reinstall it.";
+        message = @"A required user interface component is missing or corrupted and gjTerm2\u2019s code signature did not match that of the official distribution. You should download a fresh copy of the app and reinstall it.";
     } else {
-        message = @"A required user interface component is missing or corrupted, yet against all odds the code signature for iTerm2 is valid. Please file a bug at https://iterm2.com/bugs";
+        message = @"A required user interface component is missing or corrupted, yet against all odds the code signature for gjTerm2 is valid. Please file a bug at https://iterm2.com/bugs";
     }
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setMessageText:@"Application Corrupt"];
@@ -1215,7 +1215,7 @@ andEditComponentWithIdentifier:(NSString *)identifier
         return;
     }
     NSString *profileName = [profile objectForKey:KEY_NAME] ?: @"(unknown name)";
-    NSString *message = [NSString stringWithFormat:@"The selected profile, “%@”, is a dynamic profile. These are generally only edited by hand.\n\niTerm2 is now able to write changes back to dynamic profiles when they are marked as “rewritable“. Rewriting can cause the order of values to change.", profileName];
+    NSString *message = [NSString stringWithFormat:@"The selected profile, “%@”, is a dynamic profile. These are generally only edited by hand.\n\ngjTerm2 is now able to write changes back to dynamic profiles when they are marked as “rewritable“. Rewriting can cause the order of values to change.", profileName];
     // "Reveal in Finder" is a one-time navigation action and shouldn't be remembered.
     iTermWarning *warning = [[iTermWarning alloc] init];
     warning.title = message;

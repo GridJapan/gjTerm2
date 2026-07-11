@@ -67,7 +67,7 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5RS-a5-g6Q">
                     <rect key="frame" x="18" y="94" width="182" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Also install iTerm2 Utilities" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ntQ-Ku-Hh9">
+                    <buttonCell key="cell" type="check" title="Also install gjTerm2 Utilities" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ntQ-Ku-Hh9">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -80,7 +80,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" enabled="NO" allowsUndo="NO" allowsEditingTextAttributes="YES" id="wl0-hO-Vi5">
                         <font key="font" metaFont="system"/>
-                        <string key="title">Shell Integration consists of scripts that help your shell communicate with iTerm2 so it can track the commands you’re running, your current directory, and other state. </string>
+                        <string key="title">Shell Integration consists of scripts that help your shell communicate with gjTerm2 so it can track the commands you’re running, your current directory, and other state. </string>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
